@@ -21,7 +21,11 @@ The browser — not the coding agent — decides when the change is safe to ship
 
 ## The failure it catches
 
-The request was one sentence:
+This is the shape of what LENS blocks on. The values below are illustrative until the recorded
+demo run replaces them with its real output — see *How this was built* at the bottom for exactly
+which parts of this repo came from a real browser.
+
+The request is one sentence:
 
 > Add annual billing to Seatline. Annual customers should receive a 10% discount, show the
 > savings clearly in the billing breakdown, and keep monthly billing unchanged.
@@ -29,7 +33,7 @@ The request was one sentence:
 The feature works. The annual discount is correct. Removing a member still visibly removes them.
 Every assertion in the test suite passes.
 
-And yet:
+And yet the coding agent is stopped:
 
 ```text
 LENS BLOCKED COMPLETION
