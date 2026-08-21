@@ -3,7 +3,14 @@ import { dirname, join } from "node:path";
 import type { Workspace } from "./types.ts";
 import { seedWorkspace } from "./seed.ts";
 
-const DB_PATH = join(process.cwd(), "data", "seatline.json");
+/**
+ * A serverless filesystem is read-only outside `/tmp`, so on Vercel the store moves there.
+ * State then lives per instance and re-seeds on a cold start, which costs nothing here:
+ * `/demo/reset` is the intended entry point and it rewrites the file anyway.
+ */
+const DB_PATH = process.env.VERCEL
+  ? join("/tmp", "seatline.json")
+  : join(process.cwd(), "data", "seatline.json");
 
 /**
  * A JSON file is the whole database. Seatline is a five-member demo workspace that has to be
