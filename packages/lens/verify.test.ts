@@ -66,6 +66,7 @@ function stubRun(observed: Observations, overrides: Partial<KaneRun> = {}): Kane
     replayed: true,
     reason: null,
     failedStep: null,
+    screenshot: null,
     exitCode: 0,
     infraError: null,
     ...overrides,
