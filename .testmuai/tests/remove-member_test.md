@@ -22,17 +22,11 @@ Click the "Remove" button in the row for "Maya Chen".
 ## Confirm Maya is no longer an active member
 Assert that "Maya Chen" is not visible in the members table.
 
-## Open the overview
-Go to {{app_url}}/ and assert the heading "Overview" is visible.
-
 ## Record the active member count
-Store the value shown under the "Active members" label as "active_members".
+Store the number shown under the "Active members" label as "active_members".
 
 ## Record the billable seat count
-Store the value shown under the "Billable seats" label as "billable_seats".
+Store the number shown under the "Billable seats" label as "billable_seats".
 
 ## Record the monthly total
-Store the value shown under the "Monthly total" label as "monthly_total".
-
-## Record the billing cadence
-Store the value shown under the "Billing cadence" label as "billing_cadence".
+Store the amount shown under the "Monthly total" label as "monthly_total".

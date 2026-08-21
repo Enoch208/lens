@@ -37,3 +37,6 @@ npm-debug.log*
 coverage/
 .vercel
 *.pem
+
+# Handoff prompt for the second agent — working note, not part of the product
+AGENT-B-PROMPT.md

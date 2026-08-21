@@ -53,3 +53,8 @@ export async function setCadence(cadence: BillingCadence): Promise<void> {
   writeWorkspace(workspace);
   await revalidateAll();
 }
+
+/** Form-shaped wrapper so the invite card can post straight to a Server Action. */
+export async function inviteMemberAction(formData: FormData): Promise<void> {
+  await inviteMember(String(formData.get("fullName") ?? ""), String(formData.get("email") ?? ""));
+}

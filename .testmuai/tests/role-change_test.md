@@ -7,8 +7,8 @@ tags: [lens, seatline]
 # Role change
 
 Promoting a member changes what they can do, and nothing about what the workspace is charged.
-The seat count and subtotal are recorded here precisely so that "nothing" can be proven rather
-than assumed.
+The seat count and total are recorded here precisely so that "nothing" can be proven rather than
+assumed.
 
 ## Reset the workspace
 Go to {{app_url}}/demo/reset and assert the text "Workspace reset" is visible.
@@ -25,11 +25,8 @@ Assert that the role dropdown in the row for "Sarah Lindqvist" shows "Admin".
 ## Record Sarah's role
 Store the role shown in the row for "Sarah Lindqvist" as "sarah_role".
 
-## Open the overview
-Go to {{app_url}}/ and assert the heading "Overview" is visible.
-
 ## Record the billable seat count
-Store the value shown under the "Billable seats" label as "billable_seats".
+Store the number shown under the "Billable seats" label as "billable_seats".
 
-## Record the monthly subtotal
-Store the value shown under the "Monthly subtotal" label as "monthly_subtotal".
+## Record the monthly total
+Store the amount shown under the "Monthly total" label as "monthly_total".

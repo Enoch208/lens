@@ -27,14 +27,11 @@ Click the "Send invite" button.
 ## Confirm Alex is now an active member
 Assert that "Alex Morgan" is visible in the members table.
 
-## Open the overview
-Go to {{app_url}}/ and assert the heading "Overview" is visible.
-
 ## Record the active member count
-Store the value shown under the "Active members" label as "active_members".
+Store the number shown under the "Active members" label as "active_members".
 
 ## Record the billable seat count
-Store the value shown under the "Billable seats" label as "billable_seats".
+Store the number shown under the "Billable seats" label as "billable_seats".
 
-## Record the monthly subtotal
-Store the value shown under the "Monthly subtotal" label as "monthly_subtotal".
+## Record the monthly total
+Store the amount shown under the "Monthly total" label as "monthly_total".

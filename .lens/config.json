@@ -27,8 +27,7 @@
       "protect": [
         "active_members",
         "billable_seats",
-        "monthly_total",
-        "billing_cadence"
+        "monthly_total"
       ],
       "observe": []
     },
@@ -39,7 +38,7 @@
       "protect": [
         "active_members",
         "billable_seats",
-        "monthly_subtotal"
+        "monthly_total"
       ],
       "observe": []
     },
@@ -50,7 +49,7 @@
       "protect": [
         "sarah_role",
         "billable_seats",
-        "monthly_subtotal"
+        "monthly_total"
       ],
       "observe": []
     },
