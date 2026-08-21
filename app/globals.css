@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Surfaces */
+  --color-background: #08080a;
+  --color-surface: #131315;
+  --color-surface-2: #18181b;
+  --color-rail: #0b0b0d;
+  --color-ink: #ffffff;
+
+  /* Borders */
+  --color-line: #27272a;
+  --color-line-2: #3f3f46;
+
+  /* Accent — LENS violet */
+  --color-accent: #7c5cff;
+  --color-accent-2: #b8a6ff;
+
+  /* Verdict tones */
+  --color-pass: #34d399;
+  --color-fail: #f87171;
+  --color-watch: #fbbf24;
+
+  /* Fonts (wired from next/font in layout.tsx) */
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+/* No smooth scrolling — scripted scrolls and browser agents lag behind it. */
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b0d;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled),
+summary,
+label[for] {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
