@@ -21,41 +21,85 @@ The browser — not the coding agent — decides when the change is safe to ship
 
 ## The failure it catches
 
-This is the shape of what LENS blocks on. The values below are illustrative until the recorded
-demo run replaces them with its real output — see *How this was built* at the bottom for exactly
-which parts of this repo came from a real browser.
+Everything below is real output from this repository, produced on 2026-08-21 by Kane CLI driving
+a real Chrome. See [*How the demo regression was produced*](#how-the-demo-regression-was-produced)
+for exactly which part of it was deliberate.
 
 The request is one sentence:
 
 > Add annual billing to Seatline. Annual customers should receive a 10% discount, show the
 > savings clearly in the billing breakdown, and keep monthly billing unchanged.
 
-The feature works. The annual discount is correct. Removing a member still visibly removes them.
-Every assertion in the test suite passes.
+The feature works. Kane confirms it in the browser — the annual discount appears and the total
+drops. Removing a member still visibly removes them. Nothing on screen looks wrong.
 
 And yet the coding agent is stopped:
 
 ```text
 LENS BLOCKED COMPLETION
 
-1 unexpected behavioral change:
+2 unexpected behavioral changes:
 
   Flow         Member removal (member-removal)
   Observable   billable_seats
   Known-good   4
   Candidate    5
-  Kane run     https://test-manager.lambdatest.com/…
 
-The requested change — "Add annual billing with a 10% discount" — does not authorize
-this behavior to move.
+  Flow         Member removal (member-removal)
+  Observable   monthly_total
+  Known-good   $80.00
+  Candidate    $100.00
+
+The requested change does not authorize this behavior to move.
 ```
 
-The pricing refactor quietly started counting *all* members instead of *active* members. The
-members page still shows four people. The invoice still bills for five. No assertion in the
-suite was watching that number, because no one thought to write one — that is exactly the class
-of regression LENS exists to find.
+Here is the whole comparison LENS ran, verbatim:
 
----
+```text
+BLOCKED — 2 unexpected behavioral change(s)
+
+  changed files   1
+  flows replayed  billing, member-removal, member-invite, role-change
+
+  Billing  [passed]
+      billable_seats       5            → 5            SAME
+      price_per_seat       $20.00       → $20.00       SAME
+      monthly_subtotal     $100.00      → $100.00      SAME
+      annual_discount      $0.00        → $10.00       EXPECTED
+      billing_total        $100.00      → $90.00       EXPECTED
+  Member removal  [passed]
+      active_members       4            → 4            SAME
+      billable_seats       4            → 5            UNEXPECTED
+      monthly_total        $80.00       → $100.00      UNEXPECTED
+  Member invite  [failed]
+      active_members       6            → 6            SAME
+      billable_seats       6            → 6            SAME
+      monthly_total        $120.00      → null         MISSING
+  Role changes  [passed]
+      sarah_role           Admin        → Admin        SAME
+      billable_seats       5            → 5            SAME
+      monthly_total        $100.00      → $100.00      SAME
+```
+
+Read the four blocks in order, because each one is doing separate work:
+
+**Billing passed.** The flow that was actually edited is clean. The discount moved from `$0.00`
+to `$10.00` and the total from `$100.00` to `$90.00` — both marked `EXPECTED`, because the change
+request authorized exactly those two observables to move. The feature shipped correctly.
+
+**Member removal caught it.** Nobody touched member removal. The removal still works — Maya
+disappears, `active_members` still reads `4`. But the workspace is now billed for **five** seats
+and **$100.00** instead of four and `$80.00`. A member who was removed is still being charged for.
+
+**Member invite reported `MISSING`, not `SAME`.** The browser could not read that value on this
+run. LENS does not treat silence as evidence of equivalence — an observable it could not see is an
+observable it cannot certify.
+
+**Role changes passed.** Correctly unaffected. LENS replayed it anyway, because the diff touched
+shared math and LENS does not guess.
+
+That is the whole thesis in one table: the feature is right, the tests all pass, and something
+nobody asked about moved anyway.
 
 ## How it works
 
@@ -185,6 +229,28 @@ Authored once against the running app, on 2026-08-21:
 Every one of those recordings is committed. Replays cost nothing and are the only thing the Stop
 hook ever runs, which is what makes it viable to gate an agent on a real browser rather than on a
 unit test.
+
+## How the demo regression was produced
+
+Being precise about this, because it is the one thing worth being precise about.
+
+**The feature was implemented correctly.** Annual billing — 10% off the seats actually billed,
+monthly untouched — was written and verified green on the first run. All four protected flows came
+back with zero unexpected deltas. That run is committed at `.lens/verified-run.json`, and it is
+real.
+
+**The seat-counting regression was then introduced deliberately**, to show the gate closing:
+`billableSeats()` was changed to count every member on record instead of only active ones. That is
+a planted bug. No AI agent produced it by accident, and this README is not going to imply one did.
+
+**Everything downstream of that edit is untouched and real.** LENS mapped the one-file diff to four
+business flows on its own. Kane replayed all four in real Chrome. The values in the tables above
+are what the browser rendered — `billable_seats = 5` on a workspace with four active members, and
+`monthly_total = $100.00` on a bill that should have read `$80.00`. Nothing was staged, stubbed, or
+edited to make the demo work. Both runs are committed: `.lens/verified-run.json` (green) and
+`.lens/blocked-run.json` (blocked).
+
+The regression is not in the shipped code. `lib/seatline.ts` bills active members, as it always did.
 
 ## How this was built
 
