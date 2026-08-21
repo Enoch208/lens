@@ -7,6 +7,7 @@ import { runBaseline } from "./baseline.ts";
 import { runVerify, requireAppUp, blastRadius } from "./verify.ts";
 import { changedFiles } from "./flow-map.ts";
 import { formatBlockReason, formatSummary } from "./report.ts";
+import { acquireVerifyLock } from "./lock.ts";
 
 /**
  * LENS command line.
@@ -178,16 +179,29 @@ async function commandHook(): Promise<never> {
       return allow(`LENS could not verify this change: ${config.appUrl} is not reachable. Start the app and re-run \`npm run lens -- verify\`.`);
     }
 
-    const report = await runVerify({
-      config,
-      baseline,
-      flowMap,
-      changeRequest: lastUserRequest(payload.transcript_path),
-      agent: "Claude Code",
-      attempt: attempts + 1,
-      budgetS: config.hookBudgetS,
-      log,
-    });
+    const lock = acquireVerifyLock(`stop hook, session ${sessionId}`);
+    if (!lock.acquired) {
+      log(`hook: another verification is already running — ${lock.heldBy}`);
+      return allow(
+        `LENS skipped this change: a verification is already running (${lock.heldBy}). Two browser runs against one app would corrupt each other. Re-run \`npm run lens -- verify\` when it finishes.`,
+      );
+    }
+
+    let report;
+    try {
+      report = await runVerify({
+        config,
+        baseline,
+        flowMap,
+        changeRequest: lastUserRequest(payload.transcript_path),
+        agent: "Claude Code",
+        attempt: attempts + 1,
+        budgetS: config.hookBudgetS,
+        log,
+      });
+    } finally {
+      lock.release();
+    }
 
     if (report.verdict === "blocked") {
       writeAttempts(sessionId, attempts + 1);
