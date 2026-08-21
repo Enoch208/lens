@@ -127,7 +127,7 @@ Page `<h1>`: `Billing`.
 | `Price per seat`  | `$20.00`   | `price_per_seat`   |
 | `Subtotal`        | `$100.00`  | `monthly_subtotal` |
 | `Annual discount` | `$0.00`    | `discount`         |
-| `Total`           | `$100.00`  | `monthly_total`    |
+| `Total`           | `$100.00`  | `billing_total`    |
 
 Cadence toggle — two `<button>`s, always enabled, never `aria-disabled`:
 - `Monthly`
@@ -281,3 +281,46 @@ missing, render an empty state — never throw.
 5. No toasts that auto-dismiss under 15s, and no animation that delays text appearing by more
    than ~400ms.
 6. Server Components by default. `"use client"` only on leaf nodes that genuinely need state.
+
+
+---
+
+## 8. Which flow observes what
+
+Every protected observable is read from a page that already renders it. Three of the four flows
+never leave `/members`, which keeps them short, cheap to replay, and independent of pages they do
+not exercise.
+
+| Flow | Page it observes from | Protected observables | Allowed to move |
+| --- | --- | --- | --- |
+| `member-removal` | `/members` | `active_members` · `billable_seats` · `monthly_total` | — |
+| `member-invite` | `/members` | `active_members` · `billable_seats` · `monthly_total` | — |
+| `role-change` | `/members` | `sarah_role` · `billable_seats` · `monthly_total` | — |
+| `billing` | `/billing` | `billable_seats` · `price_per_seat` · `monthly_subtotal` | `annual_discount` · `billing_total` |
+
+The `billing` row is the point of the whole exercise: the annual-billing feature is *expected* to
+move the discount and the total, and is *not* authorized to move the seat count, the price per
+seat, or the subtotal. Everything in the first three rows is behavior nobody asked to change.
+
+The authoritative copy of this mapping is `.lens/config.json`. This table is a reading aid.
+
+---
+
+## 9. Never touch the app while Kane is authoring
+
+Kane authors a recording by driving a live browser against the running dev server. Anything else
+that mutates the workspace mid-run corrupts the recording, and the corruption is silent — the run
+still passes, it just records the wrong numbers.
+
+While `kane-cli testmd run` is in flight:
+
+- Do not open `/demo/reset` in a browser, a curl, or a script.
+- Do not run `npm run reset-demo`.
+- Do not edit files the page under test renders from (`lib/**`, `app/members/**`,
+  `app/components/**`, `app/globals.css`) — dev-server hot reload can refresh the page underneath
+  the agent.
+- Run the flows **sequentially**, never in parallel: every test begins by purging and reseeding
+  the same shared workspace, so two at once will clobber each other.
+
+If a recording captures a value you do not expect, delete `output-<stem>/` and author it again.
+Do not "fix" it by editing the test.
