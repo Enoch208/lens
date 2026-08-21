@@ -20,7 +20,7 @@ export function removedMembers(members: Member[]): Member[] {
 
 /** A seat is billed for each *active* member. Removed members are not billed. */
 export function billableSeats(members: Member[]): number {
-  return members.length;
+  return activeMembers(members).length;
 }
 
 export function subtotalCents(members: Member[], pricePerSeatCents: number): number {
