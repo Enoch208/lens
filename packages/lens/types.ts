@@ -21,6 +21,8 @@ export type KaneRun = {
   reason: string | null;
   /** Heading of the first step that did not pass, for the agent's block message. */
   failedStep: string | null;
+  /** Filename of the last frame the browser captured — the evidence for a failure. */
+  screenshot: string | null;
   exitCode: number;
   /** Set when LENS could not get a verdict at all (auth, timeout, crash) — never a test failure. */
   infraError: string | null;

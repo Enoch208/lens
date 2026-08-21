@@ -5,16 +5,20 @@ import { summarizeTestmdRun, parseNdjson } from "./kane.ts";
 /** A `testmd run` stream: one run_end per step, and the file's real verdict only in the summary. */
 const TESTMD_STREAM = [
   `{"type":"run_end","status":"passed","final_state":{"url":"http://localhost:3000/demo/reset"},"run_dir":"/runs/0","credits_consumed":12.5}`,
-  `{"type":"test_md_step_end","name":"Reset the workspace","status":"done"}`,
+  `{"type":"test_md_step_start","step_index":"1","heading":"Reset the workspace"}
+  `,
+  `{"type":"test_md_step_end","step_index":"1","status":"passed"}`,
   `{"type":"run_end","status":"passed","context":{"memory":{"billable_seats":{"extracted_value":"5"}},"variables":{"active_members":{"value":"4","type":"memory"}}},"test_url":"https://test-manager.lambdatest.com/share/abc"}`,
-  `{"type":"test_md_step_end","name":"Observe workspace state","status":"done"}`,
+  `{"type":"test_md_step_start","step_index":"2","heading":"Observe workspace state"}
+  `,
+  `{"type":"test_md_step_end","step_index":"2","status":"passed"}`,
   `{"type":"test_md_summary","overall_status":"passed","duration_s":41.2,"steps":2,"retries":0}`,
   `{"type":"test_md_done"}`,
 ].join("\n");
 
 test("non-JSON progress chatter is ignored, JSON events are kept", () => {
   const events = parseNdjson(`Running on: Desktop\n${TESTMD_STREAM}\nnot json`);
-  assert.equal(events.length, 6);
+  assert.equal(events.length, 8);
 });
 
 test("the file verdict comes from test_md_summary, not the first run_end", () => {
@@ -33,13 +37,15 @@ test("observations are mined from final_state, context.variables and context.mem
   assert.equal(run.runDir, "/runs/0");
 });
 
-test("a failed step is named so the coding agent is told where it broke", () => {
-  const stream = TESTMD_STREAM
-    .replace(`{"type":"test_md_step_end","name":"Observe workspace state","status":"done"}`,
-      `{"type":"test_md_step_end","name":"Observe workspace state","status":"failed","reason":"expected 4, saw 5"}`)
-    .replace(`"overall_status":"passed"`, `"overall_status":"failed"`);
+test("a failed step is named, not numbered, so the agent is told where it broke", () => {
+  const stream = TESTMD_STREAM.replace(
+    `{"type":"test_md_step_end","step_index":"2","status":"passed"}`,
+    `{"type":"test_md_step_end","step_index":"2","status":"failed","reason":"expected 4, saw 5"}`,
+  ).replace(`"overall_status":"passed"`, `"overall_status":"failed"`);
+
   const run = summarizeTestmdRun(stream, 1);
   assert.equal(run.status, "failed");
+  // Kane identifies the step only by index; the heading came from the earlier step_start event.
   assert.equal(run.failedStep, "Observe workspace state");
   assert.equal(run.reason, "expected 4, saw 5");
 });

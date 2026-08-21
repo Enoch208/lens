@@ -103,6 +103,11 @@ export function summarizeTestmdRun(stdout: string, exitCode: number): KaneRun {
   let failedStep: string | null = null;
   let replayDecisions = 0;
   let authorDecisions = 0;
+  let screenshot: string | null = null;
+
+  // `test_md_step_end` identifies a step only by index; the human-readable heading arrives
+  // earlier on `test_md_step_start`. Keep them so a failure can be named, not numbered.
+  const headings = new Map<string, string>();
 
   for (const event of events) {
     const type = asString(event.type);
@@ -117,11 +122,27 @@ export function summarizeTestmdRun(stdout: string, exitCode: number): KaneRun {
     if (typeof event.replay_decisions === "number") replayDecisions += event.replay_decisions;
     if (typeof event.author_decisions === "number") authorDecisions += event.author_decisions;
 
+    if (type === "test_md_step_start") {
+      const index = asString(event.step_index);
+      const heading = asString(event.heading);
+      if (index && heading) headings.set(index, heading);
+    }
+
+    // Screenshots ride on the inner `step_end` events; keep the latest so a failure report can
+    // point at the frame the browser was actually looking at.
+    if (type === "step_end") {
+      screenshot = asString(event.screenshot) ?? screenshot;
+    }
+
     if (type === "test_md_step_end") {
       const stepStatus = normalizeStatus(event.status);
       if (stepStatus && stepStatus !== "passed" && !failedStep) {
-        failedStep = asString(event.name) ?? asString(event.step_name) ?? asString(event.heading);
-        reason = asString(event.reason) ?? asString(event.error) ?? reason;
+        const index = asString(event.step_index);
+        failedStep =
+          (index ? headings.get(index) : null) ??
+          asString(event.heading) ??
+          (index ? `step ${index}` : null);
+        reason = asString(event.reason) ?? asString(event.error) ?? asString(event.summary) ?? reason;
       }
     }
 
@@ -162,6 +183,7 @@ export function summarizeTestmdRun(stdout: string, exitCode: number): KaneRun {
     replayed: replayDecisions > 0 && authorDecisions === 0,
     reason,
     failedStep,
+    screenshot,
     exitCode,
     infraError,
   };
