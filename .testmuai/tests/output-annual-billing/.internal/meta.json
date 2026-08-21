@@ -1,0 +1,18 @@
+{
+  "test_id": "3abf013e-3f1e-43c5-bf5e-de13eead0660",
+  "project_id": "01M0JGV1B3EPQFSBG7B92K6TVS",
+  "folder_id": "01M0JGV2XERW08B0YEYRHBK6PP",
+  "org_id": "3281559",
+  "session_name": "annual-billing",
+  "commit_id": "d2f67679-5dfd-4cc5-a27f-77aacdf11dd3",
+  "testcase_id": "01M0JK6JT7K8H4CKJF03ZEQS4M",
+  "executions": [
+    {
+      "execution_id": "9974a57a-7d3b-46c3-a6e5-a9beb0e68145",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-21T16:46:43.357Z"
+    }
+  ]
+}
