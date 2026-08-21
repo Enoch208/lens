@@ -1,0 +1,18 @@
+{
+  "test_id": "034179d0-bfa9-46a8-8227-9e9a408c6e8b",
+  "project_id": "01M0JGV1B3EPQFSBG7B92K6TVS",
+  "folder_id": "01M0JGV2XERW08B0YEYRHBK6PP",
+  "org_id": "3281559",
+  "session_name": "role-change",
+  "commit_id": "e5e07e00-38e6-4699-81c2-131c1407d73d",
+  "testcase_id": "01M0JJY6Q4X14BKQG987BEHZZP",
+  "executions": [
+    {
+      "execution_id": "8dd8bfbf-5da4-44b1-8601-2d9ec0eca810",
+      "run_kind": "author",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-21T16:41:29.502Z"
+    }
+  ]
+}
