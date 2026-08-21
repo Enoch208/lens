@@ -1,13 +1,14 @@
 import { join } from "node:path";
 import type {
   Baseline,
+  KaneRun,
   LensConfig,
   TimelineEntry,
   TimelineKind,
   VerifiedFlow,
   VerifyReport,
 } from "./types.ts";
-import { runTestmd } from "./kane.ts";
+import { runTestmd, type RunOptions } from "./kane.ts";
 import { blockingDeltas, compareFlow } from "./comparator.ts";
 import { changedFiles, mapFilesToFlows, matchesGlob, type FlowMap } from "./flow-map.ts";
 import { PROJECT_ROOT, paths, writeJson, isAppReachable } from "./config.ts";
@@ -31,6 +32,10 @@ export type VerifyOptions = {
   budgetS: number;
   flows?: string[];
   log: (message: string) => void;
+  /** Swappable so the verdict logic can be tested without spending browser credits. */
+  runner?: (testPath: string, options: RunOptions) => Promise<KaneRun>;
+  /** Off in tests, so a unit run can never overwrite the dashboard's real report. */
+  persist?: boolean;
 };
 
 export type BlastRadiusResult = {
@@ -116,7 +121,7 @@ export async function runVerify(options: VerifyOptions): Promise<VerifyReport> {
 
     note(`Kane replaying ${flow.label.toLowerCase()} in a real browser`, "verify");
 
-    const run = await runTestmd(join(PROJECT_ROOT, flow.test), {
+    const run = await (options.runner ?? runTestmd)(join(PROJECT_ROOT, flow.test), {
       variablesFile: join(PROJECT_ROOT, config.variablesFile),
       timeoutS: Math.min(config.perTestTimeoutS, remainingS),
       logPath: join(paths.runs, `verify-${name}.ndjson`),
@@ -190,7 +195,7 @@ export async function runVerify(options: VerifyOptions): Promise<VerifyReport> {
     timeline,
   };
 
-  writeJson(paths.lastVerify, report);
+  if (options.persist !== false) writeJson(paths.lastVerify, report);
   return report;
 }
 

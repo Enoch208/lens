@@ -9,7 +9,8 @@ import { blockingDeltas } from "./comparator.ts";
  * hedging, and an explicit statement that the requested change did not authorize this movement.
  */
 export function formatBlockReason(report: VerifyReport, config: LensConfig): string {
-  const lines: string[] = ["LENS BLOCKED COMPLETION", ""];
+  // `null` marks a line that only exists conditionally; "" is a deliberate blank separator.
+  const lines: (string | null)[] = ["LENS BLOCKED COMPLETION", ""];
 
   const unexpected = report.flows.flatMap((flow) =>
     blockingDeltas(flow.deltas).map((delta) => ({ flow, delta })),
@@ -43,9 +44,9 @@ export function formatBlockReason(report: VerifyReport, config: LensConfig): str
     const label = config.flows[flow.flow]?.label ?? flow.flow;
     lines.push(
       `${label} no longer passes in a real browser.`,
-      flow.failedStep ? `  Failed step  ${flow.failedStep}` : "",
-      flow.reason ? `  Kane says    ${flow.reason}` : "",
-      flow.shareUrl ? `  Kane run     ${flow.shareUrl}` : "",
+      flow.failedStep ? `  Failed step  ${flow.failedStep}` : null,
+      flow.reason ? `  Kane says    ${flow.reason}` : null,
+      flow.shareUrl ? `  Kane run     ${flow.shareUrl}` : null,
       "",
     );
   }
@@ -64,7 +65,11 @@ export function formatBlockReason(report: VerifyReport, config: LensConfig): str
     `Attempt ${report.attempt} of ${report.maxAttempts}.`,
   );
 
-  return lines.filter((line) => line !== "").join("\n").replace(/\n{3,}/g, "\n\n");
+  return lines
+    .filter((line): line is string => line !== null)
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }
 
 /** Terminal rendering of a verification, for `lens verify` run by a human. */
