@@ -124,7 +124,7 @@ can quietly move another.
 npm install
 npm run dev                     # Seatline on http://localhost:3000
 npm run lens -- status          # what LENS believes about this working tree
-npm run lens -- verify          # replay the affected flows against the baseline
+npm run lens -- verify --all    # replay every trusted flow against the baseline
 ```
 
 Then open **http://localhost:3000/lens**.
@@ -160,7 +160,7 @@ npm run reset-demo             # restore the deterministic seed
 npm test                       # LENS engine unit tests (node:test, no dependencies)
 npm run typecheck && npm run lint
 npm run lens -- baseline       # record trusted behavior (green build only)
-npm run lens -- verify         # replay affected flows and compare
+npm run lens -- verify --all   # replay every trusted flow and compare
 ```
 
 ## How this was built

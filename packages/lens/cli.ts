@@ -234,6 +234,10 @@ async function commandVerify(argv: string[]): Promise<number> {
   }
   if (!(await requireAppUp(config, log))) return 2;
 
+  // `--all` replays every trusted flow regardless of the diff. It is how someone who just
+  // cloned the repo sees LENS work without having to change anything first.
+  const flows = argv.includes("--all") ? Object.keys(baseline.flows) : flagList(argv, "--flow");
+
   const report = await runVerify({
     config,
     baseline,
@@ -242,7 +246,7 @@ async function commandVerify(argv: string[]): Promise<number> {
     agent: flagValue(argv, "--agent-name") ?? "Claude Code",
     attempt: 1,
     budgetS: Number(flagValue(argv, "--budget") ?? config.hookBudgetS),
-    flows: flagList(argv, "--flow"),
+    flows,
     log,
   });
 
@@ -275,6 +279,7 @@ LENS — AI changes one thing. LENS proves nothing else moved.
 
   lens baseline [--flow a,b]     record the trusted build's real browser behavior
   lens verify   [--flow a,b]     replay affected flows and compare against the baseline
+                [--all]          replay every trusted flow, whatever the diff says
                 [--request "…"]  the change request, for the report
   lens hook                      Claude Code Stop hook (reads the hook payload on stdin)
   lens status                    what LENS currently believes about this working tree
