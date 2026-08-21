@@ -21,6 +21,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // The demo film workspace is a separate, gitignored project with its own toolchain.
+    "video/**",
   ]),
 ]);
 
