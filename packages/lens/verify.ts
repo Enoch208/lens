@@ -169,7 +169,11 @@ export async function runVerify(options: VerifyOptions): Promise<VerifyReport> {
   const behavioralFailure = flows.some(
     (flow) => flow.status === "failed" || blockingDeltas(flow.deltas).length > 0,
   );
-  const couldNotTell = flows.length === 0 || flows.every((flow) => flow.status === "error");
+  // A flow that never ran is not a flow that passed. If any protected flow was skipped or
+  // errored, LENS did not verify this build and must not say that it did — whatever the
+  // dashboard chooses to render.
+  const incomplete = flows.some((flow) => flow.status === "error") || skippedFlows.length > 0;
+  const couldNotTell = flows.length === 0 || incomplete;
 
   const verdict: VerifyReport["verdict"] = behavioralFailure
     ? "blocked"

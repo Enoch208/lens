@@ -174,3 +174,32 @@ test("a flow that does not fit the budget is reported as skipped, never as verif
   assert.equal(report.verdict, "error");
   assert.notEqual(report.verdict, "passed", "an unrun flow must never count as verified");
 });
+
+test("one skipped flow is enough to withhold a passing verdict", async () => {
+  const report = await runVerify({
+    config: CONFIG,
+    baseline: BASELINE,
+    flowMap: FLOW_MAP,
+    changeRequest: "x",
+    agent: "Claude Code",
+    attempt: 1,
+    // Enough budget for the first flow and not the second.
+    budgetS: 120,
+    flows: ["member-removal", "billing"],
+    log: () => {},
+    persist: false,
+    runner: async (testPath) => {
+      const name = Object.keys(CONFIG.flows).find((flow) => testPath.endsWith(CONFIG.flows[flow].test));
+      if (name === "member-removal") {
+        return stubRun({ active_members: "4", billable_seats: "4", monthly_total: "$80.00" });
+      }
+      return stubRun({}, { status: "error", infraError: "kane-cli exited 2 (auth)" });
+    },
+  });
+
+  // The one flow that did run was perfectly clean — that is not the same as a verified build.
+  const removal = report.flows.find((flow) => flow.flow === "member-removal")!;
+  assert.ok(removal.deltas.every((delta) => delta.verdict === "SAME"));
+  assert.equal(report.unexpectedCount, 0);
+  assert.equal(report.verdict, "error", "an unverified flow must never read as safe to ship");
+});
