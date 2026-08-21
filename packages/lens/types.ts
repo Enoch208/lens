@@ -53,14 +53,20 @@ export type Baseline = {
 export type FlowConfig = {
   /** Path to the committed *_test.md browser contract for this flow. */
   test: string;
-  /** Observables whose value must not move unless the change explicitly authorized it. */
+  /** Observables that must not move. Any movement here blocks the coding agent. */
   protect: string[];
+  /** Observables recorded and shown, but allowed to move — this is where the feature lands. */
+  observe: string[];
   risk: "HIGH" | "MED" | "LOW";
   label: string;
 };
 
 export type LensConfig = {
   appUrl: string;
+  /** Globs that provably cannot change app behavior: the LENS tool itself, docs, recordings. */
+  ignore: string[];
+  /** Flow replayed when a changed file matches no glob — an unmapped file is never a free pass. */
+  fallbackFlow: string;
   variablesFile: string;
   perTestTimeoutS: number;
   hookBudgetS: number;

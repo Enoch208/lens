@@ -32,3 +32,33 @@ test("a file no glob claims is reported, never silently dropped", () => {
   assert.deepEqual(flows, ["billing"]);
   assert.deepEqual(unmapped, ["README.md"]);
 });
+
+test("editing LENS itself is not a behavior change and starts no browser", async () => {
+  const { blastRadius } = await import("./verify.ts");
+  const config = {
+    ignore: ["packages/lens/**", ".lens/**", "docs/**"],
+    fallbackFlow: "member-removal",
+    flows: { "member-removal": {} },
+  } as never;
+
+  const radius = blastRadius(config, FLOW_MAP, [
+    "packages/lens/verify.ts",
+    ".lens/config.json",
+    "docs/PRD.md",
+  ]);
+  assert.deepEqual(radius.flows, []);
+  assert.deepEqual(radius.changed, []);
+});
+
+test("a changed file no glob claims still forces the fallback flow to run", async () => {
+  const { blastRadius } = await import("./verify.ts");
+  const config = {
+    ignore: ["docs/**"],
+    fallbackFlow: "member-removal",
+    flows: { "member-removal": {} },
+  } as never;
+
+  const radius = blastRadius(config, FLOW_MAP, ["app/some-new-surface/page.tsx"]);
+  assert.deepEqual(radius.unmapped, ["app/some-new-surface/page.tsx"]);
+  assert.deepEqual(radius.flows, ["member-removal"], "an unmapped file is never a free pass");
+});

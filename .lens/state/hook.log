@@ -1,0 +1,3 @@
+2026-08-21T16:10:27.472Z hook: session smoke1, 11 changed file(s), 0 affected flow(s)
+2026-08-21T16:10:27.477Z hook: no behavior-relevant changes — allowing without a browser run
+2026-08-21T16:10:27.523Z hook: re-entered while already active — allowing to avoid a Stop loop
