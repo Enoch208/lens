@@ -1,25 +1,25 @@
 {
-  "test_id": "5e7b24f9-745e-41fa-88f2-0c9b96994ea0",
+  "test_id": "8d43122f-5eb3-483a-b0b1-51ffe9f6e028",
   "version": "v4",
   "auto_heal_version": "AH2",
-  "session_id": "c8e8f222-90f2-46c6-8dfe-2711f6a1f61a",
+  "session_id": "4b573321-e251-412a-b538-8e2c68407f84",
   "org_id": "3281559",
   "user_id": "3451101",
   "url": "http://localhost:3000",
-  "start_timestamp": "2026-08-21T16:21:31.364Z",
-  "end_timestamp": "2026-08-21T16:26:55.714Z",
+  "start_timestamp": "2026-08-21T16:26:48.961Z",
+  "end_timestamp": "2026-08-21T16:31:38.825Z",
   "status": "success",
-  "commit_id": "c8e8f222-90f2-46c6-8dfe-2711f6a1f61a",
+  "commit_id": "4b573321-e251-412a-b538-8e2c68407f84",
   "instructions": [
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_f6b5f70aada8490b80eac951f63fc125",
-      "generative_id": "f6b5f70aada8490b80eac951f63fc125",
+      "instruction_id": "generative_block_d6d21fff7b474c4ab27b3bcab523e98e",
+      "generative_id": "d6d21fff7b474c4ab27b3bcab523e98e",
       "objective": "Go to {{global.app_url}}/demo/reset and assert the text \"Workspace reset\" is visible.",
       "status": "success",
       "children": [
         {
-          "instruction_id": "c8dd72ec-d1a1-458d-b247-e8622fbbf36d",
+          "instruction_id": "129919b1-4826-4fe4-a8e8-bee3e378e06b",
           "instruction_class": "driver_action",
           "module_id": "",
           "instruction": "Navigate to http://localhost:3000/demo/reset",
@@ -30,12 +30,12 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "8b0d8d69-5689-4980-bc6f-96423b28bacf",
-              "instruction_id": "c8dd72ec-d1a1-458d-b247-e8622fbbf36d",
+              "operation_id": "d5865134-3959-40c5-a3a1-0d2b096c47ef",
+              "instruction_id": "129919b1-4826-4fe4-a8e8-bee3e378e06b",
               "instruction": "Navigate to http://localhost:3000/demo/reset",
               "intent": "Navigate to http://localhost:3000/demo/reset",
-              "operation_start": "2026-08-21T16:21:45.499379+00:00",
-              "operation_end": "2026-08-21T16:21:45.780Z",
+              "operation_start": "2026-08-21T16:27:01.431814+00:00",
+              "operation_end": "2026-08-21T16:27:02.665Z",
               "status": "success",
               "command": "OPEN",
               "name": "",
@@ -57,7 +57,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/8b0d8d69-5689-4980-bc6f-96423b28bacf.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/d5865134-3959-40c5-a3a1-0d2b096c47ef.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -149,8 +149,8 @@
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:21:45.499379+00:00",
-          "end_timestamp": "2026-08-21T16:21:45.780Z",
+          "start_timestamp": "2026-08-21T16:27:01.431814+00:00",
+          "end_timestamp": "2026-08-21T16:27:02.665Z",
           "type": "agent_generated",
           "tags": [],
           "html_paths": [],
@@ -176,7 +176,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "f6b5f70aada8490b80eac951f63fc125",
+          "generative_id": "d6d21fff7b474c4ab27b3bcab523e98e",
           "plan_id": "",
           "generative_objective": "Go to {{global.app_url}}/demo/reset and assert the text \"Workspace reset\" is visible.",
           "error_message": "",
@@ -187,10 +187,10 @@
           "reasoning": "Navigate to {{global.app_url}}/demo/reset"
         },
         {
-          "instruction_id": "78fb42b1-3f86-463c-a180-2c607505629b",
+          "instruction_id": "54b7263c-0746-4138-9be7-e7e9b15e674b",
           "instruction_class": "driver_action",
           "module_id": "",
-          "instruction": "Checking whether the Workspace reset text is visible",
+          "instruction": "Checking whether the text \"Workspace reset\" is present",
           "command": "TEXTUAL_ANALYZER",
           "error": null,
           "parent_instruction_id": "",
@@ -198,11 +198,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "eeded0e7-d246-4ec3-b1a9-5568bd245059",
-              "instruction_id": "78fb42b1-3f86-463c-a180-2c607505629b",
-              "instruction": "Checking whether the Workspace reset text is visible",
-              "intent": "Checking whether the Workspace reset text is visible",
-              "operation_start": "2026-08-21T16:22:00.102114+00:00",
+              "operation_id": "0db24349-3083-4600-8d1b-4b1f2de0e93f",
+              "instruction_id": "54b7263c-0746-4138-9be7-e7e9b15e674b",
+              "instruction": "Checking whether the text \"Workspace reset\" is present",
+              "intent": "Checking whether the text \"Workspace reset\" is present",
+              "operation_start": "2026-08-21T16:27:16.278287+00:00",
               "operation_end": "",
               "status": "success",
               "command": "TEXTUAL_ANALYZER",
@@ -214,7 +214,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Checking whether the Workspace reset text is visible\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"whether the text Workspace reset is visible in the page heading\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"!!el(10) && el(10).textContent.trim() === 'Workspace reset'\",\"wrapped_js\":\"(els) => {\\n  const __m = {10: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (!!el(10) && el(10).textContent.trim() === 'Workspace reset');\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Workspace reset\\\"i]\"],\"operator\":\"equals\",\"transforms\":[],\"query\":\"whether the text Workspace reset is visible in the page heading\",\"expected_value\":\"true\",\"needs_unit_conversion\":false,\"condition\":\"the text \\\"Workspace reset\\\" is visible\"}",
+              "sub_instruction_obj": "{\"operation\":\"Checking whether the text \\\"Workspace reset\\\" is present\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"whether the text \\\"Workspace reset\\\" is present in the page heading\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"!!el(10) && /workspace reset/i.test((el(10).textContent||''))\",\"wrapped_js\":\"(els) => {\\n  const __m = {10: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (!!el(10) && /workspace reset/i.test((el(10).textContent||'')));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Workspace reset\\\"i]\"],\"operator\":\"equals\",\"transforms\":[],\"query\":\"whether the text \\\"Workspace reset\\\" is present in the page heading\",\"expected_value\":\"true\",\"needs_unit_conversion\":false,\"condition\":\"the text \\\"Workspace reset\\\" is visible\"}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -225,7 +225,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/eeded0e7-d246-4ec3-b1a9-5568bd245059.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/0db24349-3083-4600-8d1b-4b1f2de0e93f.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -315,11 +315,11 @@
                 "workspace_reset_text_visible_check": "true"
               },
               "visual_context": null,
-              "reasoning": "whether the text Workspace reset is visible in the page heading"
+              "reasoning": "whether the text \"Workspace reset\" is present in the page heading"
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:22:00.102114+00:00",
+          "start_timestamp": "2026-08-21T16:27:16.278287+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -346,7 +346,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "f6b5f70aada8490b80eac951f63fc125",
+          "generative_id": "d6d21fff7b474c4ab27b3bcab523e98e",
           "plan_id": "",
           "generative_objective": "Go to {{global.app_url}}/demo/reset and assert the text \"Workspace reset\" is visible.",
           "error_message": "",
@@ -354,10 +354,10 @@
           "reason": "",
           "title": "",
           "used_variables": [],
-          "reasoning": "whether the text Workspace reset is visible in the page heading"
+          "reasoning": "whether the text \"Workspace reset\" is present in the page heading"
         },
         {
-          "instruction_id": "e2e47f20-8832-40eb-bd8c-19cb2eefbf2b",
+          "instruction_id": "5b38506a-9aa6-417e-9fd1-27840840f251",
           "instruction_class": "non_driver_action",
           "module_id": "",
           "instruction": "Assertion check",
@@ -414,11 +414,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "c643b66a-d10b-4de7-8760-2a75346d6f8b",
-              "instruction_id": "e2e47f20-8832-40eb-bd8c-19cb2eefbf2b",
+              "operation_id": "bc2c2d64-e139-42f2-b9c4-cb7619e728fa",
+              "instruction_id": "5b38506a-9aa6-417e-9fd1-27840840f251",
               "instruction": "Assertion check",
               "intent": "Assertion check",
-              "operation_start": "2026-08-21T16:22:00.662459+00:00",
+              "operation_start": "2026-08-21T16:27:16.850882+00:00",
               "operation_end": "",
               "status": "success",
               "command": "ASSERTION",
@@ -441,7 +441,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/c643b66a-d10b-4de7-8760-2a75346d6f8b.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/bc2c2d64-e139-42f2-b9c4-cb7619e728fa.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -593,7 +593,7 @@
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:22:00.662459+00:00",
+          "start_timestamp": "2026-08-21T16:27:16.850882+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -620,7 +620,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "f6b5f70aada8490b80eac951f63fc125",
+          "generative_id": "d6d21fff7b474c4ab27b3bcab523e98e",
           "plan_id": "",
           "generative_objective": "Go to {{global.app_url}}/demo/reset and assert the text \"Workspace reset\" is visible.",
           "error_message": "",
@@ -636,21 +636,21 @@
       "result_code": null,
       "bifurcation_context": [],
       "approach_reason": [
+        "Opened the reset page on the local site.",
         "Confirmed that the page showed the heading \"Workspace reset\".",
-        "The run ended on the reset page at http://localhost:3000/demo/reset.",
-        "Final outcome: the workspace reset page was displayed successfully."
+        "Finished on the reset page with the workspace reset message visible."
       ],
       "one_liner": null
     },
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_c9ac20a909f14b96a53b7f75a9d3bd3f",
-      "generative_id": "c9ac20a909f14b96a53b7f75a9d3bd3f",
+      "instruction_id": "generative_block_912acc4b6b4346a9b2e9868c17fd392e",
+      "generative_id": "912acc4b6b4346a9b2e9868c17fd392e",
       "objective": "Go to {{global.app_url}}/members and assert the heading \"Members\" is visible.",
       "status": "success",
       "children": [
         {
-          "instruction_id": "01bac781-b96d-4faf-9061-4e81800c5eaa",
+          "instruction_id": "b825e338-2ee9-40fb-a933-a3cec3a2f861",
           "instruction_class": "driver_action",
           "module_id": "",
           "instruction": "Navigate to http://localhost:3000/members",
@@ -661,12 +661,12 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "d8422ba0-2184-4027-a5d0-9bc5ea65fd5d",
-              "instruction_id": "01bac781-b96d-4faf-9061-4e81800c5eaa",
+              "operation_id": "26805720-99c1-42dc-99e1-ba568573bb4e",
+              "instruction_id": "b825e338-2ee9-40fb-a933-a3cec3a2f861",
               "instruction": "Navigate to http://localhost:3000/members",
               "intent": "Navigate to http://localhost:3000/members",
-              "operation_start": "2026-08-21T16:22:09.211325+00:00",
-              "operation_end": "2026-08-21T16:22:09.684Z",
+              "operation_start": "2026-08-21T16:27:24.747108+00:00",
+              "operation_end": "2026-08-21T16:27:25.135Z",
               "status": "success",
               "command": "OPEN",
               "name": "",
@@ -688,7 +688,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/d8422ba0-2184-4027-a5d0-9bc5ea65fd5d.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/26805720-99c1-42dc-99e1-ba568573bb4e.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -780,8 +780,8 @@
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:22:09.211325+00:00",
-          "end_timestamp": "2026-08-21T16:22:09.684Z",
+          "start_timestamp": "2026-08-21T16:27:24.747108+00:00",
+          "end_timestamp": "2026-08-21T16:27:25.135Z",
           "type": "agent_generated",
           "tags": [],
           "html_paths": [],
@@ -807,7 +807,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "c9ac20a909f14b96a53b7f75a9d3bd3f",
+          "generative_id": "912acc4b6b4346a9b2e9868c17fd392e",
           "plan_id": "",
           "generative_objective": "Go to {{global.app_url}}/members and assert the heading \"Members\" is visible.",
           "error_message": "",
@@ -818,7 +818,7 @@
           "reasoning": "Navigate to {{global.app_url}}/members"
         },
         {
-          "instruction_id": "b1926465-8d18-41c9-a46e-4ad9a56030a4",
+          "instruction_id": "f51781f0-f633-4453-9b46-81c97e578879",
           "instruction_class": "driver_action",
           "module_id": "",
           "instruction": "Checking whether the Members heading is present",
@@ -829,11 +829,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "53596815-0e88-4878-8286-352697f857f3",
-              "instruction_id": "b1926465-8d18-41c9-a46e-4ad9a56030a4",
+              "operation_id": "e45eaefd-c782-4b1c-b8e3-89ad998ace3e",
+              "instruction_id": "f51781f0-f633-4453-9b46-81c97e578879",
               "instruction": "Checking whether the Members heading is present",
               "intent": "Checking whether the Members heading is present",
-              "operation_start": "2026-08-21T16:22:24.787870+00:00",
+              "operation_start": "2026-08-21T16:27:40.334996+00:00",
               "operation_end": "",
               "status": "success",
               "command": "TEXTUAL_ANALYZER",
@@ -845,7 +845,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Checking whether the Members heading is present\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"whether the Members heading is visible\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"!!(el(10) && (el(10).offsetWidth || el(10).offsetHeight || el(10).getClientRects().length) && el(10).textContent.trim()==='Members')\",\"wrapped_js\":\"(els) => {\\n  const __m = {10: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (!!(el(10) && (el(10).offsetWidth || el(10).offsetHeight || el(10).getClientRects().length) && el(10).textContent.trim()==='Members'));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Members\\\"i]\"],\"operator\":\"equals\",\"transforms\":[],\"query\":\"whether the Members heading is visible\",\"expected_value\":\"true\",\"needs_unit_conversion\":false,\"condition\":\"the heading \\\"Members\\\" is visible\"}",
+              "sub_instruction_obj": "{\"operation\":\"Checking whether the Members heading is present\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"whether the Members heading is present and visible\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"(() => { const h = el(10); return !!(h && h.textContent.trim() === 'Members' && h.getClientRects().length > 0); })()\",\"wrapped_js\":\"(els) => {\\n  const __m = {10: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = ((() => { const h = el(10); return !!(h && h.textContent.trim() === 'Members' && h.getClientRects().length > 0); })());\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:role=heading[name=\\\"Members\\\"i]\"],\"operator\":\"equals\",\"transforms\":[],\"query\":\"whether the Members heading is present and visible\",\"expected_value\":\"true\",\"needs_unit_conversion\":false,\"condition\":\"the heading \\\"Members\\\" is visible\"}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -856,7 +856,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/53596815-0e88-4878-8286-352697f857f3.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/e45eaefd-c782-4b1c-b8e3-89ad998ace3e.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -946,11 +946,11 @@
                 "members_heading_visible_check": "true"
               },
               "visual_context": null,
-              "reasoning": "whether the Members heading is visible"
+              "reasoning": "whether the Members heading is present and visible"
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:22:24.787870+00:00",
+          "start_timestamp": "2026-08-21T16:27:40.334996+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -977,7 +977,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "c9ac20a909f14b96a53b7f75a9d3bd3f",
+          "generative_id": "912acc4b6b4346a9b2e9868c17fd392e",
           "plan_id": "",
           "generative_objective": "Go to {{global.app_url}}/members and assert the heading \"Members\" is visible.",
           "error_message": "",
@@ -985,10 +985,10 @@
           "reason": "",
           "title": "",
           "used_variables": [],
-          "reasoning": "whether the Members heading is visible"
+          "reasoning": "whether the Members heading is present and visible"
         },
         {
-          "instruction_id": "2770aab1-660f-41c6-9bfc-8c21f231c10c",
+          "instruction_id": "f40a2c25-2cb6-4191-ade5-6d5562ccb697",
           "instruction_class": "non_driver_action",
           "module_id": "",
           "instruction": "Assertion check",
@@ -1045,11 +1045,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "1283d872-9477-4dc9-8495-aa48b2c9a7a0",
-              "instruction_id": "2770aab1-660f-41c6-9bfc-8c21f231c10c",
+              "operation_id": "dea76330-d925-465b-a7a5-5cc5de5f75c4",
+              "instruction_id": "f40a2c25-2cb6-4191-ade5-6d5562ccb697",
               "instruction": "Assertion check",
               "intent": "Assertion check",
-              "operation_start": "2026-08-21T16:22:25.383563+00:00",
+              "operation_start": "2026-08-21T16:27:40.975040+00:00",
               "operation_end": "",
               "status": "success",
               "command": "ASSERTION",
@@ -1072,7 +1072,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/1283d872-9477-4dc9-8495-aa48b2c9a7a0.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/dea76330-d925-465b-a7a5-5cc5de5f75c4.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -1224,7 +1224,7 @@
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:22:25.383563+00:00",
+          "start_timestamp": "2026-08-21T16:27:40.975040+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -1251,7 +1251,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "c9ac20a909f14b96a53b7f75a9d3bd3f",
+          "generative_id": "912acc4b6b4346a9b2e9868c17fd392e",
           "plan_id": "",
           "generative_objective": "Go to {{global.app_url}}/members and assert the heading \"Members\" is visible.",
           "error_message": "",
@@ -1267,24 +1267,24 @@
       "result_code": null,
       "bifurcation_context": [],
       "approach_reason": [
-        "Opened the members page on the local site.",
-        "Checked that the page showed a heading labeled \"Members\".",
-        "The \"Members\" heading was visible, so the run finished successfully on the members page."
+        "Opened the Members page on the local site.",
+        "Confirmed that the page showed the heading \"Members\" as requested.",
+        "Finished on the Members page successfully."
       ],
       "one_liner": null
     },
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_718e26d50d0f4405a0499abcff2f2720",
-      "generative_id": "718e26d50d0f4405a0499abcff2f2720",
+      "instruction_id": "generative_block_dacb6cb370bd4f15870407f9f6f1af5a",
+      "generative_id": "dacb6cb370bd4f15870407f9f6f1af5a",
       "objective": "Click the \"Remove\" button in the row for \"Maya Chen\".",
       "status": "success",
       "children": [
         {
-          "instruction_id": "44f5a205-abb6-49ce-bccc-e5e6b60bbdf3",
+          "instruction_id": "40664b37-4e3e-471c-9897-79739538e312",
           "instruction_class": "driver_action",
           "module_id": "",
-          "instruction": "Clicking Remove Maya Chen",
+          "instruction": "Clicking Remove Maya Chen button in members table",
           "command": "CLICK",
           "error": null,
           "parent_instruction_id": "",
@@ -1292,12 +1292,12 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "eaf3d997-90e9-4460-9366-8bd10afa9040",
-              "instruction_id": "44f5a205-abb6-49ce-bccc-e5e6b60bbdf3",
-              "instruction": "Clicking Remove Maya Chen",
-              "intent": "Clicking Remove Maya Chen",
-              "operation_start": "2026-08-21T16:22:40.233764+00:00",
-              "operation_end": "2026-08-21T16:22:40.353Z",
+              "operation_id": "a88695a5-336a-4aa3-90fe-fee8d27dd498",
+              "instruction_id": "40664b37-4e3e-471c-9897-79739538e312",
+              "instruction": "Clicking Remove Maya Chen button in members table",
+              "intent": "Clicking Remove Maya Chen button in members table",
+              "operation_start": "2026-08-21T16:27:58.866297+00:00",
+              "operation_end": "2026-08-21T16:27:58.921Z",
               "status": "success",
               "command": "CLICK",
               "name": "",
@@ -1308,7 +1308,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Clicking Remove Maya Chen\",\"agent\":\"Vision Agent\",\"operation_dict\":{\"operation_type\":\"CLICK\"},\"reasoning\":\"PRIMARY: Remove button for Maya Chen; role=button; text=\\\"Remove Maya Chen\\\" | HINTS: container=members table; row=Maya Chen\",\"variable\":{},\"secrets\":{},\"params\":{}}",
+              "sub_instruction_obj": "{\"operation\":\"Clicking Remove Maya Chen button in members table\",\"agent\":\"Vision Agent\",\"operation_dict\":{\"operation_type\":\"CLICK\"},\"reasoning\":\"PRIMARY: Remove button for Maya Chen; role=button; text=\\\"Remove Maya Chen\\\" | HINTS: container=members table; row for Maya Chen\",\"variable\":{},\"secrets\":{},\"params\":{}}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -1319,7 +1319,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/eaf3d997-90e9-4460-9366-8bd10afa9040.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/a88695a5-336a-4aa3-90fe-fee8d27dd498.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -1427,17 +1427,17 @@
                 "viewport_width": 1920,
                 "viewport_height": 993,
                 "scale_factor": null,
-                "raw_image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/eaf3d997-90e9-4460-9366-8bd10afa9040.webp",
+                "raw_image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/a88695a5-336a-4aa3-90fe-fee8d27dd498.webp",
                 "raw_image_sas_url": "",
                 "annotated_image_url": "",
                 "annotated_image_sas_url": ""
               },
-              "reasoning": "PRIMARY: Remove button for Maya Chen; role=button; text=\"Remove Maya Chen\" | HINTS: container=members table; row=Maya Chen"
+              "reasoning": "PRIMARY: Remove button for Maya Chen; role=button; text=\"Remove Maya Chen\" | HINTS: container=members table; row for Maya Chen"
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:22:40.233764+00:00",
-          "end_timestamp": "2026-08-21T16:22:40.353Z",
+          "start_timestamp": "2026-08-21T16:27:58.866297+00:00",
+          "end_timestamp": "2026-08-21T16:27:58.921Z",
           "type": "agent_generated",
           "tags": [],
           "html_paths": [],
@@ -1463,7 +1463,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "718e26d50d0f4405a0499abcff2f2720",
+          "generative_id": "dacb6cb370bd4f15870407f9f6f1af5a",
           "plan_id": "",
           "generative_objective": "Click the \"Remove\" button in the row for \"Maya Chen\".",
           "error_message": "",
@@ -1471,7 +1471,7 @@
           "reason": "",
           "title": "",
           "used_variables": [],
-          "reasoning": "PRIMARY: Remove button for Maya Chen; role=button; text=\"Remove Maya Chen\" | HINTS: container=members table; row=Maya Chen"
+          "reasoning": "PRIMARY: Remove button for Maya Chen; role=button; text=\"Remove Maya Chen\" | HINTS: container=members table; row for Maya Chen"
         }
       ],
       "error_message": null,
@@ -1480,23 +1480,23 @@
       "bifurcation_context": [],
       "approach_reason": [
         "You asked to remove Maya Chen from the members list.",
-        "The run opened the members page and clicked the Remove button in Maya Chen’s row.",
+        "The automation opened the members page and clicked the Remove button in Maya Chen’s row.",
         "The task was completed on the members page."
       ],
       "one_liner": null
     },
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_9d73ed860ae7495b9234d718e5bd7990",
-      "generative_id": "9d73ed860ae7495b9234d718e5bd7990",
+      "instruction_id": "generative_block_e6940bc533d049e5ae510fb3275301d5",
+      "generative_id": "e6940bc533d049e5ae510fb3275301d5",
       "objective": "Assert that \"Maya Chen\" is not visible in the members table.",
       "status": "success",
       "children": [
         {
-          "instruction_id": "d5d6ef37-5017-4cab-8de3-9351c8cbad81",
+          "instruction_id": "da02a2f6-e600-4983-9a9c-e991c6c8d5de",
           "instruction_class": "driver_action",
           "module_id": "",
-          "instruction": "Checking whether Maya Chen is visible in the members table",
+          "instruction": "Checking whether Maya Chen is present in the members table",
           "command": "TEXTUAL_ANALYZER",
           "error": null,
           "parent_instruction_id": "",
@@ -1504,11 +1504,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "8a26574b-ee0e-4f47-8358-0ea0ac0d595a",
-              "instruction_id": "d5d6ef37-5017-4cab-8de3-9351c8cbad81",
-              "instruction": "Checking whether Maya Chen is visible in the members table",
-              "intent": "Checking whether Maya Chen is visible in the members table",
-              "operation_start": "2026-08-21T16:23:12.870099+00:00",
+              "operation_id": "df549e3b-527f-4b5f-aefe-9f02875f976a",
+              "instruction_id": "da02a2f6-e600-4983-9a9c-e991c6c8d5de",
+              "instruction": "Checking whether Maya Chen is present in the members table",
+              "intent": "Checking whether Maya Chen is present in the members table",
+              "operation_start": "2026-08-21T16:28:29.355251+00:00",
               "operation_end": "",
               "status": "success",
               "command": "TEXTUAL_ANALYZER",
@@ -1520,7 +1520,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Checking whether Maya Chen is visible in the members table\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"whether Maya Chen is visible in the members table\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(15).textContent.includes('Maya Chen')\",\"wrapped_js\":\"(els) => {\\n  const __m = {15: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(15).textContent.includes('Maya Chen'));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"NameEmailRoleStatusActionsDaniel Okafordaniel@acme.\\\"i\"],\"operator\":\"equals\",\"transforms\":[],\"query\":\"whether Maya Chen is visible in the members table\",\"expected_value\":\"false\",\"needs_unit_conversion\":false,\"condition\":\"\\\"Maya Chen\\\" is not visible in the members table.\"}",
+              "sub_instruction_obj": "{\"operation\":\"Checking whether Maya Chen is present in the members table\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"whether Maya Chen is present in the members table\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(15).textContent.includes('Maya Chen')\",\"wrapped_js\":\"(els) => {\\n  const __m = {15: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(15).textContent.includes('Maya Chen'));\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"NameEmailRoleStatusActionsDaniel Okafordaniel@acme.\\\"i\"],\"operator\":\"equals\",\"transforms\":[],\"query\":\"whether Maya Chen is present in the members table\",\"expected_value\":\"false\",\"needs_unit_conversion\":false,\"condition\":\"\\\"Maya Chen\\\" is not visible in the members table.\"}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -1531,7 +1531,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/8a26574b-ee0e-4f47-8358-0ea0ac0d595a.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/df549e3b-527f-4b5f-aefe-9f02875f976a.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -1621,11 +1621,11 @@
                 "maya_chen_not_visible_in_members_table_check": "false"
               },
               "visual_context": null,
-              "reasoning": "whether Maya Chen is visible in the members table"
+              "reasoning": "whether Maya Chen is present in the members table"
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:23:12.870099+00:00",
+          "start_timestamp": "2026-08-21T16:28:29.355251+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -1652,7 +1652,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "9d73ed860ae7495b9234d718e5bd7990",
+          "generative_id": "e6940bc533d049e5ae510fb3275301d5",
           "plan_id": "",
           "generative_objective": "Assert that \"Maya Chen\" is not visible in the members table.",
           "error_message": "",
@@ -1660,10 +1660,10 @@
           "reason": "",
           "title": "",
           "used_variables": [],
-          "reasoning": "whether Maya Chen is visible in the members table"
+          "reasoning": "whether Maya Chen is present in the members table"
         },
         {
-          "instruction_id": "0b27d41d-d53f-42a7-aff8-fa990a2e2737",
+          "instruction_id": "d397ae21-1d7c-4f38-ac10-0ec0df8227ae",
           "instruction_class": "non_driver_action",
           "module_id": "",
           "instruction": "Assertion check",
@@ -1720,11 +1720,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "8b9824a6-9c92-408f-93f5-d5e2664f8cb3",
-              "instruction_id": "0b27d41d-d53f-42a7-aff8-fa990a2e2737",
+              "operation_id": "074a3d6d-ad12-4fbe-88fd-2b7cf0453b99",
+              "instruction_id": "d397ae21-1d7c-4f38-ac10-0ec0df8227ae",
               "instruction": "Assertion check",
               "intent": "Assertion check",
-              "operation_start": "2026-08-21T16:23:13.483287+00:00",
+              "operation_start": "2026-08-21T16:28:29.927876+00:00",
               "operation_end": "",
               "status": "success",
               "command": "ASSERTION",
@@ -1747,7 +1747,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/8b9824a6-9c92-408f-93f5-d5e2664f8cb3.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/074a3d6d-ad12-4fbe-88fd-2b7cf0453b99.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -1899,7 +1899,7 @@
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:23:13.483287+00:00",
+          "start_timestamp": "2026-08-21T16:28:29.927876+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -1926,7 +1926,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "9d73ed860ae7495b9234d718e5bd7990",
+          "generative_id": "e6940bc533d049e5ae510fb3275301d5",
           "plan_id": "",
           "generative_objective": "Assert that \"Maya Chen\" is not visible in the members table.",
           "error_message": "",
@@ -1942,24 +1942,24 @@
       "result_code": null,
       "bifurcation_context": [],
       "approach_reason": [
-        "Reviewed the members page to check whether \"Maya Chen\" appeared in the members table.",
-        "Confirmed that \"Maya Chen\" was not listed in the table.",
+        "Opened the members page and checked the members table for the name Maya Chen.",
+        "Confirmed that Maya Chen was not listed in the members table.",
         "Finished on the members page with the requested condition satisfied."
       ],
       "one_liner": null
     },
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_696a433f0de04f0ea897104bc414b5c6",
-      "generative_id": "696a433f0de04f0ea897104bc414b5c6",
+      "instruction_id": "generative_block_501041b5cc44451fa50e06e38d5ccc2e",
+      "generative_id": "501041b5cc44451fa50e06e38d5ccc2e",
       "objective": "Store the number shown under the \"Active members\" label as \"active_members\".",
       "status": "success",
       "children": [
         {
-          "instruction_id": "1ab04a89-0b5a-4589-a988-7a9ccec048b1",
+          "instruction_id": "35a416de-8000-4d2c-beb7-d2744d9b267e",
           "instruction_class": "driver_action",
           "module_id": "",
-          "instruction": "Reading the active members count",
+          "instruction": "Reading the Active members count",
           "command": "TEXTUAL_ANALYZER",
           "error": null,
           "parent_instruction_id": "",
@@ -1967,11 +1967,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "20a2690a-8b79-4cd2-8498-9bbb5c47cc41",
-              "instruction_id": "1ab04a89-0b5a-4589-a988-7a9ccec048b1",
-              "instruction": "Reading the active members count",
-              "intent": "Reading the active members count",
-              "operation_start": "2026-08-21T16:25:06.866161+00:00",
+              "operation_id": "0aadc7ea-b767-4daa-b486-cdeaeae8d169",
+              "instruction_id": "35a416de-8000-4d2c-beb7-d2744d9b267e",
+              "instruction": "Reading the Active members count",
+              "intent": "Reading the Active members count",
+              "operation_start": "2026-08-21T16:29:06.782144+00:00",
               "operation_end": "",
               "status": "success",
               "command": "TEXTUAL_ANALYZER",
@@ -1983,7 +1983,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Reading the active members count\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"the number shown under the Active members label\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(12)?.previousElementSibling?.textContent ?? null\",\"wrapped_js\":\"(els) => {\\n  const __m = {12: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(12)?.previousElementSibling?.textContent ?? null);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"people with access to this\\\"i\"],\"operator\":\"equals\",\"transforms\":[\"extract_number\"],\"query\":\"the number shown under the Active members label\",\"expected_value\":\"\",\"needs_unit_conversion\":false,\"condition\":\"the number shown under the \\\"Active members\\\" label is saved as {{active_members}}\"}",
+              "sub_instruction_obj": "{\"operation\":\"Reading the Active members count\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"the number shown under the Active members label\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(12)?.previousElementSibling?.textContent?.trim() ?? null\",\"wrapped_js\":\"(els) => {\\n  const __m = {12: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(12)?.previousElementSibling?.textContent?.trim() ?? null);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"people with access to this\\\"i\"],\"operator\":\"equals\",\"transforms\":[\"strip\"],\"query\":\"the number shown under the Active members label\",\"expected_value\":\"\",\"needs_unit_conversion\":false,\"condition\":\"The number shown under the \\\"Active members\\\" label is saved as {{active_members}}.\"}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -1994,7 +1994,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/20a2690a-8b79-4cd2-8498-9bbb5c47cc41.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/0aadc7ea-b767-4daa-b486-cdeaeae8d169.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -2088,7 +2088,7 @@
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:25:06.866161+00:00",
+          "start_timestamp": "2026-08-21T16:29:06.782144+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -2115,7 +2115,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "696a433f0de04f0ea897104bc414b5c6",
+          "generative_id": "501041b5cc44451fa50e06e38d5ccc2e",
           "plan_id": "",
           "generative_objective": "Store the number shown under the \"Active members\" label as \"active_members\".",
           "error_message": "",
@@ -2131,24 +2131,24 @@
       "result_code": null,
       "bifurcation_context": [],
       "approach_reason": [
-        "The run opened the members page and looked for the number shown under the “Active members” label.",
-        "It read the active members count from the page and saved that value.",
-        "The run finished successfully on the members page with an active members count of 4."
+        "The run looked up the number shown under the \"Active members\" label on the members page.",
+        "It found and saved the Active members count as 4.",
+        "The task finished successfully on the members page."
       ],
       "one_liner": null
     },
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_dc26f85dbc404783a6d0068a6f4ab0dc",
-      "generative_id": "dc26f85dbc404783a6d0068a6f4ab0dc",
+      "instruction_id": "generative_block_32d7b5a43a8c4b8cba0eaa9195c34277",
+      "generative_id": "32d7b5a43a8c4b8cba0eaa9195c34277",
       "objective": "Store the number shown under the \"Billable seats\" label as \"billable_seats\".",
       "status": "success",
       "children": [
         {
-          "instruction_id": "64f10e35-3cd6-4388-8a35-c16ef58563a3",
+          "instruction_id": "25e788d3-233f-41df-85ac-0df73833cc98",
           "instruction_class": "driver_action",
           "module_id": "",
-          "instruction": "Reading the billable seats count",
+          "instruction": "Reading the number shown under the Billable seats label",
           "command": "TEXTUAL_ANALYZER",
           "error": null,
           "parent_instruction_id": "",
@@ -2156,11 +2156,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "0f34767f-e382-4769-9839-0a037b747bd1",
-              "instruction_id": "64f10e35-3cd6-4388-8a35-c16ef58563a3",
-              "instruction": "Reading the billable seats count",
-              "intent": "Reading the billable seats count",
-              "operation_start": "2026-08-21T16:25:40.186474+00:00",
+              "operation_id": "d3346519-b8b7-4c86-9806-0dcca02bbf00",
+              "instruction_id": "25e788d3-233f-41df-85ac-0df73833cc98",
+              "instruction": "Reading the number shown under the Billable seats label",
+              "intent": "Reading the number shown under the Billable seats label",
+              "operation_start": "2026-08-21T16:29:46.796577+00:00",
               "operation_end": "",
               "status": "success",
               "command": "TEXTUAL_ANALYZER",
@@ -2172,7 +2172,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Reading the billable seats count\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"the number shown under the Billable seats label\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(12)?.previousSibling?.textContent?.trim() ?? null\",\"wrapped_js\":\"(els) => {\\n  const __m = {12: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(12)?.previousSibling?.textContent?.trim() ?? null);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"people with access to this\\\"i\"],\"operator\":\"equals\",\"transforms\":[\"strip\"],\"query\":\"the number shown under the Billable seats label\",\"expected_value\":\"\",\"needs_unit_conversion\":false,\"condition\":\"the number shown under the \\\"Billable seats\\\" label is saved as {{billable_seats}}\"}",
+              "sub_instruction_obj": "{\"operation\":\"Reading the number shown under the Billable seats label\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"the number shown under the \\\"Billable seats\\\" label\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(13)?.previousElementSibling?.textContent?.trim() ?? null\",\"wrapped_js\":\"(els) => {\\n  const __m = {13: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(13)?.previousElementSibling?.textContent?.trim() ?? null);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"seats charged on the next\\\"i\"],\"operator\":\"equals\",\"transforms\":[\"strip\"],\"query\":\"the number shown under the \\\"Billable seats\\\" label\",\"expected_value\":\"\",\"needs_unit_conversion\":false,\"condition\":\"The number shown under the \\\"Billable seats\\\" label is saved as {{billable_seats}}.\"}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -2183,7 +2183,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/0f34767f-e382-4769-9839-0a037b747bd1.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/d3346519-b8b7-4c86-9806-0dcca02bbf00.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -2191,7 +2191,7 @@
               "navigation_direction": "",
               "tagified_image_url": "",
               "query_variable_name": "billable_seats",
-              "query_variable_value": "5",
+              "query_variable_value": "4",
               "query_variable_type": "",
               "expected_value": "",
               "queried_value": "",
@@ -2270,14 +2270,14 @@
               "until_settle_ms": 0,
               "api_data": {},
               "output_variables": {
-                "billable_seats": "5"
+                "billable_seats": "4"
               },
               "visual_context": null,
-              "reasoning": "the number shown under the Billable seats label"
+              "reasoning": "the number shown under the \"Billable seats\" label"
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:25:40.186474+00:00",
+          "start_timestamp": "2026-08-21T16:29:46.796577+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -2304,7 +2304,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "dc26f85dbc404783a6d0068a6f4ab0dc",
+          "generative_id": "32d7b5a43a8c4b8cba0eaa9195c34277",
           "plan_id": "",
           "generative_objective": "Store the number shown under the \"Billable seats\" label as \"billable_seats\".",
           "error_message": "",
@@ -2312,7 +2312,7 @@
           "reason": "",
           "title": "",
           "used_variables": [],
-          "reasoning": "the number shown under the Billable seats label"
+          "reasoning": "the number shown under the \"Billable seats\" label"
         }
       ],
       "error_message": null,
@@ -2320,24 +2320,24 @@
       "result_code": null,
       "bifurcation_context": [],
       "approach_reason": [
-        "The task was to find the number shown under the \"Billable seats\" label on the members page.",
-        "The run opened the members page and read the billable seats count displayed there.",
-        "The billable seats value was found successfully and recorded as 5."
+        "Retrieved the number shown under the \"Billable seats\" label on the members page.",
+        "Saved the billable seats value as 4.",
+        "Finished on the members page with the requested value successfully captured."
       ],
       "one_liner": null
     },
     {
       "content_type": "generative_block",
-      "instruction_id": "generative_block_ab35d1482c4f4880ab9e1f2e3100d3d9",
-      "generative_id": "ab35d1482c4f4880ab9e1f2e3100d3d9",
+      "instruction_id": "generative_block_bbfcad28fdc44c59b11fb60ecc7157c8",
+      "generative_id": "bbfcad28fdc44c59b11fb60ecc7157c8",
       "objective": "Store the amount shown under the \"Monthly total\" label as \"monthly_total\".",
       "status": "success",
       "children": [
         {
-          "instruction_id": "3338d634-f8e6-4523-b1fa-cf8aceb57e48",
+          "instruction_id": "853e253f-0a39-4c15-8ace-1dbfa7ffce80",
           "instruction_class": "driver_action",
           "module_id": "",
-          "instruction": "Reading the monthly total from the members summary card",
+          "instruction": "Reading the monthly total amount",
           "command": "TEXTUAL_ANALYZER",
           "error": null,
           "parent_instruction_id": "",
@@ -2345,11 +2345,11 @@
           "classification_error": {},
           "operations": [
             {
-              "operation_id": "046ffe84-9089-401f-ae6c-149feebb5851",
-              "instruction_id": "3338d634-f8e6-4523-b1fa-cf8aceb57e48",
-              "instruction": "Reading the monthly total from the members summary card",
-              "intent": "Reading the monthly total from the members summary card",
-              "operation_start": "2026-08-21T16:26:49.663703+00:00",
+              "operation_id": "cd8842e1-75a0-4f5e-b1a5-70e60b36db6b",
+              "instruction_id": "853e253f-0a39-4c15-8ace-1dbfa7ffce80",
+              "instruction": "Reading the monthly total amount",
+              "intent": "Reading the monthly total amount",
+              "operation_start": "2026-08-21T16:31:32.212101+00:00",
               "operation_end": "",
               "status": "success",
               "command": "TEXTUAL_ANALYZER",
@@ -2361,7 +2361,7 @@
               "frame": "",
               "error_message": "",
               "code_snippet": "",
-              "sub_instruction_obj": "{\"operation\":\"Reading the monthly total from the members summary card\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"the monthly total amount shown in the members summary card\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(14)?.previousElementSibling?.textContent ?? null\",\"wrapped_js\":\"(els) => {\\n  const __m = {14: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(14)?.previousElementSibling?.textContent ?? null);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"× $20.00 per seat\\\"i\"],\"operator\":\"equals\",\"transforms\":[\"strip\"],\"query\":\"the monthly total amount shown in the members summary card\",\"expected_value\":\"\",\"needs_unit_conversion\":false,\"condition\":\"The amount shown under the \\\"Monthly total\\\" label is saved as {{monthly_total}}.\"}",
+              "sub_instruction_obj": "{\"operation\":\"Reading the monthly total amount\",\"agent\":\"Operation Agent\",\"operation_dict\":{\"operation_type\":\"TEXTUAL_ANALYZER\"},\"reasoning\":\"the amount shown under the Monthly total label\",\"variable\":{},\"secrets\":{},\"params\":{},\"code_js\":\"el(14)?.previousElementSibling?.textContent?.trim() ?? null\",\"wrapped_js\":\"(els) => {\\n  const __m = {14: 0};\\n  const el = (i) => els[__m[i]];\\n  const __v = (el(14)?.previousElementSibling?.textContent?.trim() ?? null);\\n  return (typeof __v === 'boolean' ? String(__v) : __v);\\n}\",\"locators\":[\"internal:text=\\\"× $20.00 per seat\\\"i\"],\"operator\":\"equals\",\"transforms\":[\"strip\"],\"query\":\"the amount shown under the Monthly total label\",\"expected_value\":\"\",\"needs_unit_conversion\":false,\"condition\":\"the amount shown under the \\\"Monthly total\\\" label is saved as {{monthly_total}}\"}",
               "test_id": "",
               "test_version": "",
               "action": "",
@@ -2372,7 +2372,7 @@
               "update_time_stamp": "",
               "locator_variable": "",
               "locator_variable_name": "",
-              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/046ffe84-9089-401f-ae6c-149feebb5851.webp",
+              "image_url": "https://prodauteurartefacts.blob.core.windows.net/test-screenshots/test_screenshots/untagged_screenshot/cd8842e1-75a0-4f5e-b1a5-70e60b36db6b.webp",
               "alternative_xpaths": [],
               "attribute": "",
               "value_description": "",
@@ -2380,7 +2380,7 @@
               "navigation_direction": "",
               "tagified_image_url": "",
               "query_variable_name": "monthly_total",
-              "query_variable_value": "$100.00",
+              "query_variable_value": "$80.00",
               "query_variable_type": "",
               "expected_value": "",
               "queried_value": "",
@@ -2459,14 +2459,14 @@
               "until_settle_ms": 0,
               "api_data": {},
               "output_variables": {
-                "monthly_total": "$100.00"
+                "monthly_total": "$80.00"
               },
               "visual_context": null,
-              "reasoning": "the monthly total amount shown in the members summary card"
+              "reasoning": "the amount shown under the Monthly total label"
             }
           ],
           "status": "success",
-          "start_timestamp": "2026-08-21T16:26:49.663703+00:00",
+          "start_timestamp": "2026-08-21T16:31:32.212101+00:00",
           "end_timestamp": "",
           "type": "agent_generated",
           "tags": [],
@@ -2493,7 +2493,7 @@
           "network_assertion_content": {},
           "screenshot_command": "",
           "smartui_contents": {},
-          "generative_id": "ab35d1482c4f4880ab9e1f2e3100d3d9",
+          "generative_id": "bbfcad28fdc44c59b11fb60ecc7157c8",
           "plan_id": "",
           "generative_objective": "Store the amount shown under the \"Monthly total\" label as \"monthly_total\".",
           "error_message": "",
@@ -2501,7 +2501,7 @@
           "reason": "",
           "title": "",
           "used_variables": [],
-          "reasoning": "the monthly total amount shown in the members summary card"
+          "reasoning": "the amount shown under the Monthly total label"
         }
       ],
       "error_message": null,
@@ -2509,9 +2509,9 @@
       "result_code": null,
       "bifurcation_context": [],
       "approach_reason": [
-        "Opened the members page on localhost and looked for the value shown under the \"Monthly total\" label.",
-        "Read the monthly total from the members summary section and saved it as $100.00.",
-        "Finished on the members page with the monthly total successfully captured."
+        "Retrieved the amount shown under the \"Monthly total\" label on the members page.",
+        "Saved the monthly total as $80.00.",
+        "Finished on the members page with the requested value captured successfully."
       ],
       "one_liner": null
     }
@@ -2519,7 +2519,7 @@
   "modules": [],
   "uploaded_files": [],
   "test_params": [],
-  "test_level_variables": "[{\"name\":\"workspace_reset_text_visible_check\",\"value\":\"true\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"members_heading_visible_check\",\"value\":\"true\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"maya_chen_not_visible_in_members_table_check\",\"value\":\"false\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"active_members\",\"value\":\"4\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"billable_seats\",\"value\":\"5\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"monthly_total\",\"value\":\"$100.00\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"}]",
+  "test_level_variables": "[{\"name\":\"workspace_reset_text_visible_check\",\"value\":\"true\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"members_heading_visible_check\",\"value\":\"true\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"maya_chen_not_visible_in_members_table_check\",\"value\":\"false\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"active_members\",\"value\":\"4\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"billable_seats\",\"value\":\"4\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"},{\"name\":\"monthly_total\",\"value\":\"$80.00\",\"value_type\":\"test_level\",\"variable_description\":\"ANALYZE result\"}]",
   "test_global_variables": [
     {
       "id": 79241,
