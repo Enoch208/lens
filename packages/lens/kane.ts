@@ -196,6 +196,8 @@ export function summarizeTestmdRun(stdout: string, exitCode: number): KaneRun {
 export type RunOptions = {
   variablesFile: string;
   timeoutS: number;
+  /** Kane resolves recordings and project config relative to its cwd — pin it to the repo root. */
+  cwd?: string;
   /** Where to tee raw NDJSON so every verdict stays auditable after the fact. */
   logPath?: string;
   onLog?: (message: string) => void;
@@ -227,7 +229,10 @@ export function runTestmd(testPath: string, options: RunOptions): Promise<KaneRu
     let stderr = "";
     let settled = false;
 
-    const child = spawn("kane-cli", args, { stdio: ["ignore", "pipe", "pipe"] });
+    const child = spawn("kane-cli", args, {
+      cwd: options.cwd,
+      stdio: ["ignore", "pipe", "pipe"],
+    });
 
     // A hard wall an outer timeout can rely on: `--timeout` bounds the browser run, not the process.
     const killTimer = setTimeout(() => {

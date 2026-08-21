@@ -41,6 +41,7 @@ export async function runBaseline(options: BaselineOptions): Promise<Baseline> {
 
     log(`baseline: replaying ${name} (${flow.test})`);
     const run = await runTestmd(join(PROJECT_ROOT, flow.test), {
+      cwd: PROJECT_ROOT,
       variablesFile: join(PROJECT_ROOT, config.variablesFile),
       timeoutS: config.perTestTimeoutS,
       logPath: join(paths.runs, `baseline-${name}.ndjson`),

@@ -122,6 +122,7 @@ export async function runVerify(options: VerifyOptions): Promise<VerifyReport> {
     note(`Kane replaying ${flow.label.toLowerCase()} in a real browser`, "verify");
 
     const run = await (options.runner ?? runTestmd)(join(PROJECT_ROOT, flow.test), {
+      cwd: PROJECT_ROOT,
       variablesFile: join(PROJECT_ROOT, config.variablesFile),
       timeoutS: Math.min(config.perTestTimeoutS, remainingS),
       logPath: join(paths.runs, `verify-${name}.ndjson`),
