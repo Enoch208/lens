@@ -27,12 +27,20 @@ export function subtotalCents(members: Member[], pricePerSeatCents: number): num
   return billableSeats(members) * pricePerSeatCents;
 }
 
+/** Annual customers pay for ten months and get two free. */
+const ANNUAL_DISCOUNT_RATE = 0.1;
+
 /**
- * Baseline Seatline has no annual pricing: the discount is always zero, on both cadences.
- * Implementing a real annual discount is the change the coding agent is asked to make.
+ * Annual customers receive 10% off the seats they are actually billed for. Monthly billing is
+ * untouched — the discount is exactly zero on that cadence, as it was before.
  */
-export function discountCents(_members: Member[], _pricePerSeatCents: number, _cadence: BillingCadence): number {
-  return 0;
+export function discountCents(
+  members: Member[],
+  pricePerSeatCents: number,
+  cadence: BillingCadence,
+): number {
+  if (cadence !== "annual") return 0;
+  return Math.round(subtotalCents(members, pricePerSeatCents) * ANNUAL_DISCOUNT_RATE);
 }
 
 export function totalCents(members: Member[], pricePerSeatCents: number, cadence: BillingCadence): number {

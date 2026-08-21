@@ -1,0 +1,208 @@
+{
+  "startedAt": "2026-08-21T16:49:33.266Z",
+  "finishedAt": "2026-08-21T16:51:25.358Z",
+  "verdict": "passed",
+  "changeRequest": "Add annual billing to Seatline. Annual customers should receive a 10% discount, show the savings clearly in the billing breakdown, and keep monthly billing unchanged.",
+  "agent": "Claude Code",
+  "attempt": 1,
+  "maxAttempts": 3,
+  "changedFiles": [
+    "lib/seatline.ts"
+  ],
+  "affectedFlows": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "unmappedFiles": [],
+  "skippedFlows": [],
+  "flows": [
+    {
+      "flow": "billing",
+      "status": "passed",
+      "shareUrl": null,
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/8266f0ae-565b-4681-b6be-461e12528b59/scratch/7/replay-test",
+      "reason": "replay completed",
+      "failedStep": null,
+      "deltas": [
+        {
+          "key": "billable_seats",
+          "baseline": "5",
+          "candidate": "5",
+          "verdict": "SAME"
+        },
+        {
+          "key": "price_per_seat",
+          "baseline": "$20.00",
+          "candidate": "$20.00",
+          "verdict": "SAME"
+        },
+        {
+          "key": "monthly_subtotal",
+          "baseline": "$100.00",
+          "candidate": "$100.00",
+          "verdict": "SAME"
+        },
+        {
+          "key": "annual_discount",
+          "baseline": "$0.00",
+          "candidate": "$10.00",
+          "verdict": "EXPECTED_CHANGE"
+        },
+        {
+          "key": "billing_total",
+          "baseline": "$100.00",
+          "candidate": "$90.00",
+          "verdict": "EXPECTED_CHANGE"
+        }
+      ],
+      "infraError": null
+    },
+    {
+      "flow": "member-removal",
+      "status": "passed",
+      "shareUrl": null,
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/a77a2748-ed0a-40d0-9528-80f59ed11030/scratch/6/replay-test",
+      "reason": "replay completed",
+      "failedStep": null,
+      "deltas": [
+        {
+          "key": "active_members",
+          "baseline": "4",
+          "candidate": "4",
+          "verdict": "SAME"
+        },
+        {
+          "key": "billable_seats",
+          "baseline": "4",
+          "candidate": "4",
+          "verdict": "SAME"
+        },
+        {
+          "key": "monthly_total",
+          "baseline": "$80.00",
+          "candidate": "$80.00",
+          "verdict": "SAME"
+        }
+      ],
+      "infraError": null
+    },
+    {
+      "flow": "member-invite",
+      "status": "passed",
+      "shareUrl": null,
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/6bf14d42-ad44-46d1-a35a-17947782e635/scratch/8/replay-test",
+      "reason": "replay completed",
+      "failedStep": null,
+      "deltas": [
+        {
+          "key": "active_members",
+          "baseline": "6",
+          "candidate": "6",
+          "verdict": "SAME"
+        },
+        {
+          "key": "billable_seats",
+          "baseline": "6",
+          "candidate": "6",
+          "verdict": "SAME"
+        },
+        {
+          "key": "monthly_total",
+          "baseline": "$120.00",
+          "candidate": "$120.00",
+          "verdict": "SAME"
+        }
+      ],
+      "infraError": null
+    },
+    {
+      "flow": "role-change",
+      "status": "passed",
+      "shareUrl": null,
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/4a095d17-d6a0-49a1-a171-75dc145a3fe1/scratch/6/replay-test",
+      "reason": "replay completed",
+      "failedStep": null,
+      "deltas": [
+        {
+          "key": "sarah_role",
+          "baseline": "Admin",
+          "candidate": "Admin",
+          "verdict": "SAME"
+        },
+        {
+          "key": "billable_seats",
+          "baseline": "5",
+          "candidate": "5",
+          "verdict": "SAME"
+        },
+        {
+          "key": "monthly_total",
+          "baseline": "$100.00",
+          "candidate": "$100.00",
+          "verdict": "SAME"
+        }
+      ],
+      "infraError": null
+    }
+  ],
+  "unexpectedCount": 0,
+  "timeline": [
+    {
+      "at": "2026-08-21T16:49:33.308Z",
+      "label": "Claude Code changed 1 file(s)",
+      "kind": "change"
+    },
+    {
+      "at": "2026-08-21T16:49:33.308Z",
+      "label": "Blast radius: 4 protected flow(s)",
+      "kind": "impact"
+    },
+    {
+      "at": "2026-08-21T16:49:33.308Z",
+      "label": "Kane replaying billing in a real browser",
+      "kind": "verify"
+    },
+    {
+      "at": "2026-08-21T16:49:49.893Z",
+      "label": "Billing still behaves like the trusted build",
+      "kind": "proof"
+    },
+    {
+      "at": "2026-08-21T16:49:49.893Z",
+      "label": "Kane replaying member removal in a real browser",
+      "kind": "verify"
+    },
+    {
+      "at": "2026-08-21T16:50:02.079Z",
+      "label": "Member removal still behaves like the trusted build",
+      "kind": "proof"
+    },
+    {
+      "at": "2026-08-21T16:50:02.079Z",
+      "label": "Kane replaying member invite in a real browser",
+      "kind": "verify"
+    },
+    {
+      "at": "2026-08-21T16:51:04.479Z",
+      "label": "Member invite still behaves like the trusted build",
+      "kind": "proof"
+    },
+    {
+      "at": "2026-08-21T16:51:04.479Z",
+      "label": "Kane replaying role changes in a real browser",
+      "kind": "verify"
+    },
+    {
+      "at": "2026-08-21T16:51:25.358Z",
+      "label": "Role changes still behaves like the trusted build",
+      "kind": "proof"
+    },
+    {
+      "at": "2026-08-21T16:51:25.358Z",
+      "label": "Protected behavior verified — safe to ship",
+      "kind": "proof"
+    }
+  ]
+}
