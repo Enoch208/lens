@@ -274,17 +274,27 @@ function commandStatus(): number {
   const changed = changedFiles(PROJECT_ROOT);
   const radius = blastRadius(config, loadFlowMap(), changed);
 
-  process.stdout.write(
-    [
-      "",
-      `  app                ${config.appUrl}`,
-      `  trusted baseline   ${baseline ? `${Object.keys(baseline.flows).length} flow(s) @ ${baseline.commit}` : "none — run `lens baseline`"}`,
-      `  changed files      ${changed.length} (${radius.changed.length} behavior-relevant)`,
-      `  blast radius       ${radius.flows.join(", ") || "none"}`,
-      `  unmapped files     ${radius.unmapped.join(", ") || "none"}`,
-      "",
-    ].join("\n"),
-  );
+  const lines = [
+    "",
+    `  app                ${config.appUrl}`,
+    `  trusted baseline   ${baseline ? `${Object.keys(baseline.flows).length} flow(s) @ ${baseline.commit}` : "none — run `lens baseline`"}`,
+    `  changed files      ${changed.length} (${radius.changed.length} behavior-relevant)`,
+    `  blast radius       ${radius.flows.join(", ") || "none"}`,
+    `  unmapped files     ${radius.unmapped.join(", ") || "none"}`,
+  ];
+
+  // Print what the browser actually saw on the trusted build. These are the numbers a change has
+  // to leave alone, and seeing them spelled out is the fastest way to understand what LENS guards.
+  if (baseline) {
+    lines.push("", "  protected observables, as a real browser last saw them:");
+    for (const [name, flow] of Object.entries(baseline.flows)) {
+      const protectedKeys = config.flows[name]?.protect ?? [];
+      const shown = protectedKeys.map((key) => `${key}=${flow.state[key] ?? "?"}`).join("  ");
+      lines.push(`    ${(config.flows[name]?.label ?? name).padEnd(16)} ${shown}`);
+    }
+  }
+
+  process.stdout.write(`${lines.join("\n")}\n\n`);
   return 0;
 }
 
