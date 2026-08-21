@@ -73,7 +73,7 @@ export const BLOCKED_VERIFY: FixtureReport = {
       deltas: [
         { key: "active_members", baseline: "4", candidate: "4", verdict: "SAME" },
         { key: "billable_seats", baseline: "4", candidate: "5", verdict: "UNEXPECTED_CHANGE" },
-        { key: "monthly_total", baseline: "$80.00", candidate: "$100.00", verdict: "UNEXPECTED_CHANGE" },
+        { key: "monthly_total", baseline: "$80.00", candidate: "$80.00", verdict: "SAME" },
       ],
     },
     {

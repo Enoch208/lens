@@ -12,7 +12,7 @@ const KIND: Record<TimelineKind, { icon: string; className: string }> = {
 };
 
 export default function Timeline({ entries }: { entries: TimelineEntry[] }) {
-  if (entries.length === 0) {
+  if (!entries || entries.length === 0) {
     return <p className="text-sm font-extralight text-zinc-600">Nothing recorded yet.</p>;
   }
 
