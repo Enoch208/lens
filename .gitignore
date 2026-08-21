@@ -1,0 +1,33 @@
+# Reference frontend (design reference only — never committed)
+frontend/
+
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# next.js
+.next/
+out/
+build/
+
+# env & credentials
+.env*
+!.env.example
+*.local.json
+
+# LENS runtime state (baselines are committed; run artifacts are not)
+.lens/runs/
+.lens/state/
+
+# film workspace
+video/
+
+# tooling scratch
+.worktrees/
+.superpowers/
+scratch/
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts
+npm-debug.log*
