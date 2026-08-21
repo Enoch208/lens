@@ -9,12 +9,8 @@ const OPTIONS: { cadence: BillingCadence; label: string }[] = [
   { cadence: "annual", label: "Annual — Save 10%" },
 ];
 
-/**
- * Both buttons stay clickable at all times. `aria-disabled` would make the active one silently
- * swallow a locator click, which turns a broken run into one that looks like it passed.
- */
 export default function CadenceToggle({ current }: { current: BillingCadence }) {
-  const [pending, startTransition] = useTransition();
+  const [, startTransition] = useTransition();
 
   return (
     <div className="inline-flex gap-1 rounded-full border border-white/[0.08] bg-[#0b0b0d] p-1">
@@ -32,7 +28,7 @@ export default function CadenceToggle({ current }: { current: BillingCadence }) 
               active
                 ? "bg-white text-black"
                 : "text-zinc-400 hover:text-white"
-            } ${pending ? "opacity-70" : ""}`}
+            }`}
           >
             {option.label}
           </button>

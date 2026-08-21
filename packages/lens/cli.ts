@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { readFileSync, existsSync, mkdirSync } from "node:fs";
 import { join } from "node:path";
-import type { LensConfig, VerifyReport } from "./types.ts";
+import type { LensConfig } from "./types.ts";
 import { loadConfig, loadFlowMap, loadBaseline, makeLogger, paths, writeJson, PROJECT_ROOT } from "./config.ts";
 import { runBaseline } from "./baseline.ts";
 import { runVerify, requireAppUp, blastRadius } from "./verify.ts";
