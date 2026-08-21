@@ -1,0 +1,67 @@
+{
+  "commit": "92253f9",
+  "createdAt": "2026-08-21T16:48:24.342Z",
+  "flows": {
+    "member-removal": {
+      "test": ".testmuai/tests/remove-member_test.md",
+      "status": "passed",
+      "state": {
+        "active_members": "4",
+        "billable_seats": "4",
+        "maya_chen_not_visible_in_members_table_check": "false",
+        "members_heading_visible_check": "true",
+        "monthly_total": "$80.00",
+        "workspace_reset_text_visible_check": "true"
+      },
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/f68a2996-0b53-444b-b2fe-0b234e60ec41/scratch/6/replay-test",
+      "shareUrl": null,
+      "durationS": 4
+    },
+    "member-invite": {
+      "test": ".testmuai/tests/invite-member_test.md",
+      "status": "passed",
+      "state": {
+        "active_members": "6",
+        "alex_morgan_members_table_visibility_check": "true",
+        "billable_seats": "6",
+        "invite_a_teammate_heading_check": "true",
+        "monthly_total": "$120.00",
+        "workspace_reset_text_check": "true"
+      },
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/8c476fe8-632f-447a-8517-5db7c0eb411d/scratch/8/replay-test",
+      "shareUrl": null,
+      "durationS": 14
+    },
+    "role-change": {
+      "test": ".testmuai/tests/role-change_test.md",
+      "status": "passed",
+      "state": {
+        "billable_seats": "5",
+        "members_heading_visible_check": "true",
+        "monthly_total": "$100.00",
+        "sarah_lindqvist_role_dropdown_admin_check": "Admin",
+        "sarah_role": "Admin",
+        "workspace_reset_text_visible_check": "true"
+      },
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/f4f4e3bf-3741-45b8-a124-c53afa24ae58/scratch/6/replay-test",
+      "shareUrl": null,
+      "durationS": 12
+    },
+    "billing": {
+      "test": ".testmuai/tests/annual-billing_test.md",
+      "status": "passed",
+      "state": {
+        "annual_discount": "$0.00",
+        "billable_seats": "5",
+        "billing_heading_visible_check": "true",
+        "billing_total": "$100.00",
+        "monthly_subtotal": "$100.00",
+        "price_per_seat": "$20.00",
+        "workspace_reset_text_check": "true"
+      },
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/ad2cf068-6dcb-4ea9-a654-6928fbd3d0b3/scratch/7/replay-test",
+      "shareUrl": null,
+      "durationS": 6
+    }
+  }
+}
