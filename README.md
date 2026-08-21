@@ -169,10 +169,30 @@ npm run lens -- baseline       # record trusted behavior (green build only)
 npm run lens -- verify --all   # replay every trusted flow and compare
 ```
 
+## What the browser contracts actually cost
+
+Authored once against the running app, on 2026-08-21:
+
+| Contract | Steps | Authoring time | Credits |
+| --- | --- | --- | --- |
+| `remove-member_test.md` | 7/7 passed | 285s | 33.9 |
+| `invite-member_test.md` | 9/9 passed | 282s | 57.6 |
+| `role-change_test.md` | 7/7 passed | 246s | 52.0 |
+| `annual-billing_test.md` | 8/8 passed | 285s | 55.6 |
+| | **31/31** | **~18 min** | **199.1** |
+
+Every one of those recordings is committed. Replays cost nothing and are the only thing the Stop
+hook ever runs, which is what makes it viable to gate an agent on a real browser rather than on a
+unit test.
+
 ## How this was built
 
 Seatline and the LENS engine were written with Claude Code, and LENS's Stop hook was then pointed
 at Claude Code itself — the gate runs against the agent that built it. The `_test.md` browser
-contracts were authored by Kane CLI against the running app and committed with their recordings.
-Nothing in the verification path is mocked: every baseline and every verdict in `.lens/` came
-from a real Chrome.
+contracts were authored by Kane CLI driving real Chrome against the running app, and committed
+along with their recordings.
+
+Nothing in the verification path is mocked. Every value in `.lens/baseline.json` was read out of a
+live browser; the engine's 28 unit tests use an injected fake Kane runner so the *verdict logic*
+can be tested without spending credits, but no baseline and no verdict in `.lens/` ever comes from
+a fake.
