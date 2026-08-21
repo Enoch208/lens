@@ -130,7 +130,9 @@ npm run lens -- verify --all    # replay every trusted flow against the baseline
 Then open **http://localhost:3000/lens**.
 
 Recordings for all four flows are committed, so `verify` replays from cache — no authoring cost.
-`kane-cli login` is required for replay; see `.env.example` for the one variable involved.
+Replay needs a Kane session (`kane-cli login`); LENS itself has no secrets, and `.env.example`
+says so explicitly. Everything it configures lives in `.lens/config.json` and
+`.testmuai/variables/local.json`, both committed.
 
 ---
 
