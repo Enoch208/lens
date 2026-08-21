@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Seatline demo state — reseeded by /demo/reset, must never pollute the verified diff
+data/
