@@ -24,29 +24,49 @@
       "test": ".testmuai/tests/remove-member_test.md",
       "label": "Member removal",
       "risk": "HIGH",
-      "protect": ["active_members", "billable_seats", "monthly_total"],
+      "protect": [
+        "active_members",
+        "billable_seats",
+        "monthly_total",
+        "billing_cadence"
+      ],
       "observe": []
     },
     "member-invite": {
       "test": ".testmuai/tests/invite-member_test.md",
       "label": "Member invite",
       "risk": "MED",
-      "protect": ["active_members", "billable_seats", "monthly_subtotal"],
+      "protect": [
+        "active_members",
+        "billable_seats",
+        "monthly_subtotal"
+      ],
       "observe": []
     },
     "role-change": {
       "test": ".testmuai/tests/role-change_test.md",
       "label": "Role changes",
       "risk": "MED",
-      "protect": ["sarah_role", "billable_seats", "monthly_subtotal"],
+      "protect": [
+        "sarah_role",
+        "billable_seats",
+        "monthly_subtotal"
+      ],
       "observe": []
     },
     "billing": {
       "test": ".testmuai/tests/annual-billing_test.md",
       "label": "Billing",
       "risk": "HIGH",
-      "protect": ["billable_seats", "price_per_seat", "monthly_subtotal"],
-      "observe": ["annual_discount", "billing_total", "billing_cadence"]
+      "protect": [
+        "billable_seats",
+        "price_per_seat",
+        "monthly_subtotal"
+      ],
+      "observe": [
+        "annual_discount",
+        "billing_total"
+      ]
     }
   }
 }
