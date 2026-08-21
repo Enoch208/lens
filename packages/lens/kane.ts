@@ -119,8 +119,12 @@ export function summarizeTestmdRun(stdout: string, exitCode: number): KaneRun {
     if (typeof event.credits_consumed === "number") {
       credits = (credits ?? 0) + event.credits_consumed;
     }
-    if (typeof event.replay_decisions === "number") replayDecisions += event.replay_decisions;
-    if (typeof event.author_decisions === "number") authorDecisions += event.author_decisions;
+    // These counters ride inside `test_md_summary.steps`, not at the top level of the event.
+    for (const source of [event, asRecord(event.steps)]) {
+      if (!source) continue;
+      if (typeof source.replay_decisions === "number") replayDecisions += source.replay_decisions;
+      if (typeof source.author_decisions === "number") authorDecisions += source.author_decisions;
+    }
 
     if (type === "test_md_step_start") {
       const index = asString(event.step_index);

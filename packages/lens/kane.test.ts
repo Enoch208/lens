@@ -65,7 +65,8 @@ test("an empty stream is an infrastructure error, not a silent pass", () => {
 });
 
 test("missing credits stay null — a replay is not a zero-credit authoring run", () => {
-  const replay = `{"type":"test_md_summary","overall_status":"passed","replay_decisions":6,"author_decisions":0}`;
+  // Shape taken verbatim from a real authored run: the counters live under `steps`.
+  const replay = `{"type":"test_md_summary","overall_status":"passed","steps":{"total":7,"passed":7,"replay_decisions":7,"author_decisions":0}}`;
   const run = summarizeTestmdRun(replay, 0);
   assert.equal(run.credits, null);
   assert.equal(run.replayed, true);
