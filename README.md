@@ -10,6 +10,7 @@
 ![Kane flows](https://img.shields.io/badge/Kane%20flows-4%20·%2031%20steps-10b981)
 ![Stack](https://img.shields.io/badge/Next.js%2016%20·%20React%2019%20·%20Kane%20CLI-1f1f23)
 [![Live](https://img.shields.io/badge/live-lens--seatline.vercel.app-10b981)](https://lens-seatline.vercel.app/)
+[![Demo](https://img.shields.io/badge/demo-2%20min%20film-ff0000?logo=youtube&logoColor=white)](https://youtu.be/SLyXNW51g4I)
 
 ### The agent does not decide when it is done. Kane CLI does — in real Chrome, against business flows written as plain English.
 
@@ -20,9 +21,45 @@ contracts in headless Chrome, compares what Kane actually observed against a tru
 and **blocks the agent** until every protected observable is `SAME` or an authorized
 `EXPECTED_CHANGE` — not when the model says it is done.
 
-**[ Live app ↗ ](https://lens-seatline.vercel.app/)** &nbsp;·&nbsp; **[ Judge it in 90 seconds ↗ ](#judge-lens-in-90-seconds)** &nbsp;·&nbsp; **[ The failure it catches ↗ ](#the-failure-it-catches)** &nbsp;·&nbsp; **[ How LENS decides ↗ ](#how-lens-decides)**
+**[ ▶ Watch the 2-min demo ↗ ](https://youtu.be/SLyXNW51g4I)** &nbsp;·&nbsp; **[ Live app ↗ ](https://lens-seatline.vercel.app/)** &nbsp;·&nbsp; **[ Judge it in 90 seconds ↗ ](#judge-lens-in-90-seconds)** &nbsp;·&nbsp; **[ The failure it catches ↗ ](#the-failure-it-catches)** &nbsp;·&nbsp; **[ How LENS decides ↗ ](#how-lens-decides)**
 
 </div>
+
+---
+
+## Watch the demo
+
+<div align="center">
+
+<a href="https://youtu.be/SLyXNW51g4I">
+  <img src="https://img.youtube.com/vi/SLyXNW51g4I/maxresdefault.jpg" alt="LENS — AI changes one thing. LENS proves nothing else moved. (2 min)" width="760" />
+</a>
+
+**[ ▶ AI changes one thing. LENS proves nothing else moved. — 2:24 ↗ ](https://youtu.be/SLyXNW51g4I)**
+
+</div>
+
+Annual billing ships correctly and verifies green. The seat-counting regression in the film is
+the planted one described in
+[How the demo regression was produced](#how-the-demo-regression-was-produced) — one line of
+`billableSeats()`. At the seed state nothing looks wrong: five members, five seats, `$100.00`.
+The bill only fails once somebody leaves, which is why a human reading the dashboard would miss
+it and a replayed browser flow does not.
+
+| | |
+|---|---|
+| [0:00](https://youtu.be/SLyXNW51g4I?t=0) | **The catch** — one line changes, and the bill stops going down |
+| [0:30](https://youtu.be/SLyXNW51g4I?t=30) | **Seatline** — the app under test, and why one edit moves every page |
+| [0:54](https://youtu.be/SLyXNW51g4I?t=54) | **The contract** — committed browser tests, and the trusted baseline |
+| [1:12](https://youtu.be/SLyXNW51g4I?t=72) | **The loop** — blast radius, replay, and the block |
+| [1:45](https://youtu.be/SLyXNW51g4I?t=105) | **The proof** — the verdict page, observable by observable |
+| [2:12](https://youtu.be/SLyXNW51g4I?t=132) | **Close** |
+
+Every frame is the real product in a real browser, driving the real seed data — no mockups and
+no re-typed terminals. The bug is planted; nothing downstream of it is. The diff, the Kane CLI
+trace, the semantic comparison table and the Stop-hook message are verbatim output from actual
+runs, and the two figures the film calls out — `billable_seats 4 → 5` and
+`monthly_total $80.00 → $100.00` — are what Chrome rendered.
 
 ---
 
@@ -59,6 +96,7 @@ open http://localhost:3000/demo/reset   # deterministic reseed — step one of e
 
 ## Table of contents
 
+- [Watch the demo](#watch-the-demo)
 - [The failure it catches](#the-failure-it-catches)
 - [The problem](#the-problem)
 - [What I built](#what-i-built)
@@ -345,6 +383,7 @@ The regression is not in the shipped code. `lib/seatline.ts` bills active member
 
 Hosted at **[lens-seatline.vercel.app](https://lens-seatline.vercel.app/)**. Kane browser
 verification runs locally; production `/lens` ships the last verified snapshot from this repo.
+The **[2-minute demo](https://youtu.be/SLyXNW51g4I)** walks all six routes below in a real browser.
 
 | Route | What it shows |
 |---|---|
