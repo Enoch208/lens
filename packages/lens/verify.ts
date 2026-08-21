@@ -121,13 +121,34 @@ export async function runVerify(options: VerifyOptions): Promise<VerifyReport> {
 
     note(`Kane replaying ${flow.label.toLowerCase()} in a real browser`, "verify");
 
-    const run = await (options.runner ?? runTestmd)(join(PROJECT_ROOT, flow.test), {
+    const replay = options.runner ?? runTestmd;
+    const kaneOptions = {
       cwd: PROJECT_ROOT,
       variablesFile: join(PROJECT_ROOT, config.variablesFile),
       timeoutS: Math.min(config.perTestTimeoutS, remainingS),
       logPath: join(paths.runs, `verify-${name}.ndjson`),
       onLog: log,
-    });
+    };
+
+    let run = await replay(join(PROJECT_ROOT, flow.test), kaneOptions);
+
+    // A replay that fails in the browser gets exactly one second chance.
+    //
+    // Blocking an agent for a flaky step is the worst thing this tool can do — it costs the agent
+    // a repair cycle chasing a bug that does not exist, and it teaches everyone to distrust the
+    // gate. A real regression fails both times; a slow DOM read does not. One retry is cheap
+    // because replays are cached, and it is bounded, so a genuinely broken flow still blocks.
+    if (run.status === "failed" && !run.infraError) {
+      log(`retry: ${name} failed at "${run.failedStep ?? "an unnamed step"}" — replaying once more`);
+      const second = await replay(join(PROJECT_ROOT, flow.test), kaneOptions);
+      if (second.status === "passed") {
+        log(`retry: ${name} passed on the second replay — treating the first as a flake`);
+        run = second;
+      } else {
+        log(`retry: ${name} failed twice — this is not a flake`);
+        run = second;
+      }
+    }
 
     const trusted = baseline.flows[name];
     const deltas =

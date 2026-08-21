@@ -205,7 +205,11 @@ async function commandHook(): Promise<never> {
 
     if (report.verdict === "blocked") {
       writeAttempts(sessionId, attempts + 1);
-      log(`hook: BLOCKED — ${report.unexpectedCount} unexpected delta(s)`);
+      const broken = report.flows.filter((flow) => flow.status === "failed").map((flow) => flow.flow);
+      log(
+        `hook: BLOCKED — ${report.unexpectedCount} unexpected delta(s)` +
+          (broken.length ? `, ${broken.length} flow(s) failing in the browser: ${broken.join(", ")}` : ""),
+      );
       return block(formatBlockReason(report, config));
     }
 

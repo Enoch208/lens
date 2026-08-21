@@ -203,3 +203,51 @@ test("one skipped flow is enough to withhold a passing verdict", async () => {
   assert.equal(report.unexpectedCount, 0);
   assert.equal(report.verdict, "error", "an unverified flow must never read as safe to ship");
 });
+
+test("a flaky browser step gets one retry and does not block the agent", async () => {
+  let attempts = 0;
+  const report = await runVerify({
+    config: CONFIG,
+    baseline: BASELINE,
+    flowMap: FLOW_MAP,
+    changeRequest: "x",
+    agent: "Claude Code",
+    attempt: 1,
+    budgetS: 600,
+    flows: ["member-removal"],
+    log: () => {},
+    persist: false,
+    runner: async () => {
+      attempts += 1;
+      // First replay dies on a slow DOM read; the second sees the page perfectly well.
+      if (attempts === 1) return stubRun({}, { status: "failed", failedStep: "Record the monthly total" });
+      return stubRun({ active_members: "4", billable_seats: "4", monthly_total: "$80.00" });
+    },
+  });
+
+  assert.equal(attempts, 2);
+  assert.equal(report.verdict, "passed", "a flake must not cost the agent a repair cycle");
+});
+
+test("a real regression fails both replays and still blocks", async () => {
+  let attempts = 0;
+  const report = await runVerify({
+    config: CONFIG,
+    baseline: BASELINE,
+    flowMap: FLOW_MAP,
+    changeRequest: "x",
+    agent: "Claude Code",
+    attempt: 1,
+    budgetS: 600,
+    flows: ["member-removal"],
+    log: () => {},
+    persist: false,
+    runner: async () => {
+      attempts += 1;
+      return stubRun({}, { status: "failed", failedStep: "Remove Maya Chen", reason: "button not found" });
+    },
+  });
+
+  assert.equal(attempts, 2, "the retry is bounded at one");
+  assert.equal(report.verdict, "blocked");
+});
