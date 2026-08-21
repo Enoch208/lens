@@ -9,7 +9,7 @@ import { Icon } from "@iconify/react";
  * A browser agent has to be able to read where it is and where it can go.
  */
 const NAV = [
-  { label: "Overview", icon: "solar:widget-4-linear", href: "/" },
+  { label: "Overview", icon: "solar:widget-4-linear", href: "/overview" },
   { label: "Members", icon: "solar:users-group-rounded-linear", href: "/members" },
   { label: "Billing", icon: "solar:card-linear", href: "/billing" },
   { label: "LENS", icon: "solar:shield-check-linear", href: "/lens" },
@@ -20,7 +20,7 @@ export default function Sidebar() {
 
   return (
     <aside className="flex w-60 shrink-0 flex-col self-start border-r border-white/[0.06] bg-[#0b0b0d] px-4 py-6 lg:sticky lg:top-0 lg:h-screen">
-      <Link href="/" className="flex items-center gap-2.5 px-2 pb-8">
+      <Link href="/overview" className="flex items-center gap-2.5 px-2 pb-8">
         <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#7c5cff]/30 bg-[#7c5cff]/10 text-accent-2">
           <Icon icon="solar:eye-scan-linear" className="text-lg" />
         </span>

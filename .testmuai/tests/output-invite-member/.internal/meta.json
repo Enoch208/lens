@@ -20,6 +20,27 @@
       "status": "passed",
       "valid": true,
       "at": "2026-08-21T16:47:39.536Z"
+    },
+    {
+      "execution_id": "e486ddce-10aa-4a72-86fb-b5489de89f12",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-21T16:50:58.897Z"
+    },
+    {
+      "execution_id": "88649b2d-2327-4588-802f-a325335c6476",
+      "run_kind": "replay",
+      "status": "broken",
+      "valid": true,
+      "at": "2026-08-21T16:53:01.507Z"
+    },
+    {
+      "execution_id": "e6913433-3ab7-459c-96c1-a6fd0dcceba4",
+      "run_kind": "replay",
+      "status": "passed",
+      "valid": true,
+      "at": "2026-08-21T16:53:51.000Z"
     }
   ]
 }

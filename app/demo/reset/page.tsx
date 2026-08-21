@@ -28,7 +28,7 @@ export default function DemoResetPage() {
           {formatMoney(active * workspace.pricePerSeatCents)} per month
         </p>
         <Link
-          href="/"
+          href="/overview"
           className="mt-7 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#0b0b0d] px-5 py-2.5 text-sm font-medium text-zinc-300 transition-colors hover:border-white/20 hover:text-white"
         >
           <Glyph icon="solar:arrow-left-linear" className="text-base" />

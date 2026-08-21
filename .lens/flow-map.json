@@ -65,10 +65,6 @@
     "member-invite",
     "role-change"
   ],
-  "app/page.tsx": [
-    "billing",
-    "member-removal"
-  ],
   "app/billing/**": [
     "billing"
   ],
@@ -79,5 +75,10 @@
   ],
   "app/lens/**": [],
   "data/**": [],
-  "app/home/**": []
+  "app/home/**": [],
+  "app/page.tsx": [],
+  "app/overview/**": [
+    "billing",
+    "member-removal"
+  ]
 }

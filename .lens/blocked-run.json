@@ -1,8 +1,8 @@
 {
-  "startedAt": "2026-08-21T16:52:58.183Z",
-  "finishedAt": "2026-08-21T16:54:25.418Z",
+  "startedAt": "2026-08-21T16:52:10.835Z",
+  "finishedAt": "2026-08-21T16:53:25.880Z",
   "verdict": "blocked",
-  "changeRequest": "the requested change",
+  "changeRequest": "Add annual billing to Seatline. Annual customers should receive a 10% discount, show the savings clearly in the billing breakdown, and keep monthly billing unchanged.",
   "agent": "Claude Code",
   "attempt": 1,
   "maxAttempts": 3,
@@ -22,7 +22,7 @@
       "flow": "billing",
       "status": "passed",
       "shareUrl": null,
-      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/a0c20b54-3f7f-46d8-86d8-c27a63e25551/scratch/7/replay-test",
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/7f8762d5-04bd-4e6a-809d-0547e2660f6e/scratch/7/replay-test",
       "reason": "replay completed",
       "failedStep": null,
       "deltas": [
@@ -63,7 +63,7 @@
       "flow": "member-removal",
       "status": "passed",
       "shareUrl": null,
-      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/478ba165-651b-4ca0-93f7-57f25d7e1a6b/scratch/6/replay-test",
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/fdf62cb4-2215-4cb4-9ee6-8454bc6c7f60/scratch/6/replay-test",
       "reason": "replay completed",
       "failedStep": null,
       "deltas": [
@@ -90,11 +90,11 @@
     },
     {
       "flow": "member-invite",
-      "status": "passed",
+      "status": "failed",
       "shareUrl": null,
-      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/5f2f2d9a-c205-42c3-a0cc-e5d36b7842a9/scratch/8/replay-test",
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/79af424d-7006-4f6b-975e-7aa6499fed67/scratch/8/replay-test",
       "reason": "replay completed",
-      "failedStep": null,
+      "failedStep": "Record the monthly total",
       "deltas": [
         {
           "key": "active_members",
@@ -111,8 +111,8 @@
         {
           "key": "monthly_total",
           "baseline": "$120.00",
-          "candidate": "$120.00",
-          "verdict": "SAME"
+          "candidate": null,
+          "verdict": "MISSING"
         }
       ],
       "infraError": null
@@ -121,7 +121,7 @@
       "flow": "role-change",
       "status": "passed",
       "shareUrl": null,
-      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/0083e93d-d978-496e-8c42-400cc7539af7/scratch/6/replay-test",
+      "runDir": "/Users/enoch/.testmuai/kaneai/sessions/404b2c3f-225e-48c5-b70a-7b6ad8ae93d9/scratch/6/replay-test",
       "reason": "replay completed",
       "failedStep": null,
       "deltas": [
@@ -150,57 +150,57 @@
   "unexpectedCount": 2,
   "timeline": [
     {
-      "at": "2026-08-21T16:52:58.225Z",
+      "at": "2026-08-21T16:52:10.879Z",
       "label": "Claude Code changed 1 file(s)",
       "kind": "change"
     },
     {
-      "at": "2026-08-21T16:52:58.226Z",
+      "at": "2026-08-21T16:52:10.880Z",
       "label": "Blast radius: 4 protected flow(s)",
       "kind": "impact"
     },
     {
-      "at": "2026-08-21T16:52:58.226Z",
+      "at": "2026-08-21T16:52:10.880Z",
       "label": "Kane replaying billing in a real browser",
       "kind": "verify"
     },
     {
-      "at": "2026-08-21T16:53:10.803Z",
+      "at": "2026-08-21T16:52:24.684Z",
       "label": "Billing still behaves like the trusted build",
       "kind": "proof"
     },
     {
-      "at": "2026-08-21T16:53:10.804Z",
+      "at": "2026-08-21T16:52:24.684Z",
       "label": "Kane replaying member removal in a real browser",
       "kind": "verify"
     },
     {
-      "at": "2026-08-21T16:53:23.583Z",
+      "at": "2026-08-21T16:52:38.944Z",
       "label": "Member removal: billable_seats moved 4 → 5",
       "kind": "fail"
     },
     {
-      "at": "2026-08-21T16:53:23.583Z",
+      "at": "2026-08-21T16:52:38.945Z",
       "label": "Member removal: monthly_total moved $80.00 → $100.00",
       "kind": "fail"
     },
     {
-      "at": "2026-08-21T16:53:23.583Z",
+      "at": "2026-08-21T16:52:38.945Z",
       "label": "Kane replaying member invite in a real browser",
       "kind": "verify"
     },
     {
-      "at": "2026-08-21T16:53:58.443Z",
-      "label": "Member invite still behaves like the trusted build",
-      "kind": "proof"
+      "at": "2026-08-21T16:53:05.870Z",
+      "label": "Member invite failed in the browser at \"Record the monthly total\"",
+      "kind": "fail"
     },
     {
-      "at": "2026-08-21T16:53:58.443Z",
+      "at": "2026-08-21T16:53:05.870Z",
       "label": "Kane replaying role changes in a real browser",
       "kind": "verify"
     },
     {
-      "at": "2026-08-21T16:54:25.418Z",
+      "at": "2026-08-21T16:53:25.880Z",
       "label": "Role changes still behaves like the trusted build",
       "kind": "proof"
     }

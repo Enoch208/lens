@@ -12,7 +12,8 @@ Owner of this file: the LENS engine agent. If a label genuinely must change, ask
 
 | Route          | Purpose                                                        |
 | -------------- | -------------------------------------------------------------- |
-| `/`            | Overview — workspace + billing summary                          |
+| `/`            | LENS landing page (marketing surface, no workspace state)        |
+| `/overview`    | Overview — workspace + billing summary                          |
 | `/members`     | Member table + invite form + remove/role actions                 |
 | `/billing`     | Plan, seat math, cadence toggle, discount breakdown              |
 | `/lens`        | LENS verification dashboard (reads `.lens/*.json`)               |
@@ -66,7 +67,7 @@ Each row below is `LABEL` → `VALUE at seed`. Render the label as visible DOM t
 value as visible DOM text in the same card. Add `data-observable="<key>"` to the element that
 holds the **value** so a human can grep it; Kane reads the visible text, not the attribute.
 
-### `/` — Overview
+### `/overview` — Overview
 
 | Label             | Seed value | `data-observable`  |
 | ----------------- | ---------- | ------------------ |
@@ -150,7 +151,7 @@ Workspace reset
 Acme Studio · 5 active members · $100.00 per month
 ```
 
-Plus a link `Back to overview` → `/`.
+Plus a link `Back to overview` → `/overview`.
 
 ---
 

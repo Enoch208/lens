@@ -114,7 +114,8 @@ can quietly move another.
 
 | Route | What it shows |
 | --- | --- |
-| `/` | Active members, billable seats, subtotal, discount, total |
+| `/` | The LENS landing page |
+| `/overview` | Active members, billable seats, subtotal, discount, total |
 | `/members` | The member table, invite form, remove and role controls |
 | `/billing` | Plan, seat math, cadence toggle, discount breakdown |
 | `/lens` | The LENS verification dashboard |
