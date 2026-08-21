@@ -1,0 +1,18 @@
+.step-bar {
+  background: linear-gradient(
+    to top,
+    #1a1033 0%,
+    #7c5cff 22%,
+    #ffffff 42%,
+    #b8a6ff 65%,
+    transparent 95%
+  );
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  transform-origin: bottom;
+  will-change: height, opacity;
+}
+
+.landing-root {
+  scroll-behavior: smooth;
+}

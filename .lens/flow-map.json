@@ -1,18 +1,83 @@
 {
-  "lib/seatline.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "lib/money.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "lib/reader.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "lib/store.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "lib/actions.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "lib/seed.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "lib/types.ts": ["billing", "member-removal", "member-invite", "role-change"],
-  "app/layout.tsx": ["billing", "member-removal", "member-invite", "role-change"],
-  "app/globals.css": ["billing", "member-removal", "member-invite", "role-change"],
-  "app/components/**": ["billing", "member-removal", "member-invite", "role-change"],
-  "app/demo/**": ["billing", "member-removal", "member-invite", "role-change"],
-  "app/page.tsx": ["billing", "member-removal"],
-  "app/billing/**": ["billing"],
-  "app/members/**": ["member-removal", "member-invite", "role-change"],
+  "lib/seatline.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "lib/money.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "lib/reader.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "lib/store.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "lib/actions.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "lib/seed.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "lib/types.ts": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "app/layout.tsx": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "app/globals.css": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "app/components/**": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "app/demo/**": [
+    "billing",
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
+  "app/page.tsx": [
+    "billing",
+    "member-removal"
+  ],
+  "app/billing/**": [
+    "billing"
+  ],
+  "app/members/**": [
+    "member-removal",
+    "member-invite",
+    "role-change"
+  ],
   "app/lens/**": [],
-  "data/**": []
+  "data/**": [],
+  "app/home/**": []
 }
